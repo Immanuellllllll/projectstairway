@@ -4,10 +4,7 @@ import Config.MySQLConnection;
 import Models.Member;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 @Repository
 public class MemberRepo {
@@ -21,31 +18,44 @@ public class MemberRepo {
         //Lets load the driver
 
     }
-    /**
-     *
-     * @param member
-     */
-    public void registerMember(Member member) {
-        // TODO - implement MemberRepository.registerMember
-        throw new UnsupportedOperationException();
+
+    public void createMember(int memberId,String firstName,String lastName,String street,String postalcode, String city, String email) throws SQLException {
+        String q = "INSERT INTO members (memberid, firstname, lastname, street, postalcode, city, email)"+" VALUES (?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement preparedStmt = con.prepareStatement(q);
+        preparedStmt.setInt(1, memberId);
+        preparedStmt.setString (2, firstName);
+        preparedStmt.setString (3, lastName);
+        preparedStmt.setString (4, street);
+        preparedStmt.setString (5, postalcode);
+        preparedStmt.setString (6, city);
+        preparedStmt.setString (7, email);
+        preparedStmt.execute();
+        preparedStmt.close();
     }
 
-    /**
-     *
-     * @param member
-     */
-    public void editMember(Member member) {
-        // TODO - implement MemberRepository.editMember
-        throw new UnsupportedOperationException();
+    public void editMember(int memberId,String firstName,String lastName,String street,String postalcode, String city, String email) throws SQLException {
+        String q = "UPDATE members SET(memberid, firstname, lastname, street, postalcode, city, email)"+" VALUES (?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement preparedStmt = con.prepareStatement(q);
+        preparedStmt.setInt(1, memberId);
+        preparedStmt.setString (2, firstName);
+        preparedStmt.setString (3, lastName);
+        preparedStmt.setString (4, street);
+        preparedStmt.setString (5, postalcode);
+        preparedStmt.setString (6, city);
+        preparedStmt.setString (7, email);
+        preparedStmt.execute();
+        preparedStmt.close();
     }
 
-    /**
-     *
-     * @param memberid
-     */
-    public void deleteMember(int memberid) {
-        // TODO - implement MemberRepository.deleteMember
-        throw new UnsupportedOperationException();
+
+
+
+    public void deleteMember(int memberid) throws SQLException {
+       String q= "DELETE FROM members"+"WHERE memberid="+"(?)";
+        PreparedStatement preparedStatement = con.prepareStatement(q);
+        preparedStatement.setInt(1,memberid);
+        preparedStatement.execute();
+        preparedStatement.close();
     }
 
     //Metoden prøver at sende en SQL sætning til databasen og lykkedes det sender den et resultset af alle patienter tilbage.
@@ -59,7 +69,6 @@ public class MemberRepo {
                 System.out.println(e);
             }
             return null;
-        // TODO - implement MemberRepository.viewMembers
     }
 
     //Metoden beder om en String og returnerer en ordre til at udføre den i databasen.
