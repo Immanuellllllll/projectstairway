@@ -7,12 +7,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.servlet.http.HttpServletRequest;
+import java.sql.SQLException;
 
 @Controller
 public class MemberController {
     @Autowired
-    //MemberServiceI ms;
+    MemberServiceI ms;
 
     @PostMapping ("/registerMember")
     public String registerMember(){
@@ -24,14 +28,28 @@ public class MemberController {
         model.addAttribute("member", new Member());
         return "test";
     }
-    public void editMember(){
+    @PostMapping("/EditMember")
+    public String EditMember(@ModelAttribute Member member, HttpServletRequest request) throws SQLException {
+        ms.editmember(member);
+        String referer = request.getHeader("Referer");
+        return "test";
+
+        @PostMapping("/DeleteMember")
+        public String DeleteMember(@PathVariable int memberId) throws SQLException {
+            ms.deleteMember(memberId);
+            return "test";
+        }
+
+
+        @GetMapping("showAllMembers")
+        public String showAllMembers(Member member) throws Exception {
+            member.addAttribute("medlemer", ms.getALL());
+            member.addAttribute("medlem",new Member());
+            return "test";
+        }
+
+        }
+
 
     }
-    public void deleteMember(){
-
-    }
-    public void viewMember(){
-
-    }
-
 }
