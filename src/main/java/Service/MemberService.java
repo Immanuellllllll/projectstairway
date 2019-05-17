@@ -1,9 +1,10 @@
 package Service;
 
 import Models.Member;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class MemberService {
 
     public void registerMember(Member member) {
@@ -17,10 +18,6 @@ public class MemberService {
         throw new UnsupportedOperationException();
     }
 
-    /**
-     *
-     * @param memberid
-     */
     public void deleteMember(int memberid) {
         // TODO - implement MemberService.deleteMember
         throw new UnsupportedOperationException();
