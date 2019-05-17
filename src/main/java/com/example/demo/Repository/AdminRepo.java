@@ -9,10 +9,8 @@ import org.springframework.stereotype.Repository;
 import javax.management.Query;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
-@Repository
+/*@Repository
 public class AdminRepo {
-    @Autowired
-    AdminService admService;
     Connection con;
     MySQLConnection msc;
 
@@ -21,7 +19,7 @@ public class AdminRepo {
         this.msc= (MySQLConnection) msc.create();
     }
 
-    public ResultSet confirmLogin() throws NoSuchAlgorithmException, SQLException {
+    /*public ResultSet confirmLogin() throws NoSuchAlgorithmException, SQLException {
         String username = "Nils";
         String password = admService.checkPassword();
         String q =
@@ -39,4 +37,4 @@ public class AdminRepo {
         return (stmt.executeQuery(query));
     }
 
-}
+}*/

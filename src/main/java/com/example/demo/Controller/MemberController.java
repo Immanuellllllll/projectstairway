@@ -22,7 +22,7 @@ public class MemberController {
     @GetMapping ("/a")
     public String registerForm(Model model){
         model.addAttribute("member", new Member());
-        return "test";
+        return "Støt Stairways arbejde - Stairway - for gadebørn og alle børns rettigheder - Generalforsamling 2016";
     }
     public void editMember(){
 

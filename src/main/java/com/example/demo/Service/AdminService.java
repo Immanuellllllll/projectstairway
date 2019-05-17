@@ -1,7 +1,7 @@
 package com.example.demo.Service;
 
 import com.example.demo.Models.Admin;
-import com.example.demo.Repository.AdminRepo;
+//import com.example.demo.Repository.AdminRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +12,8 @@ import java.sql.SQLException;
 
 @Service
 public class AdminService implements AdminServiceI {
-    @Autowired
-
+    //@Autowired
+    //AdminRepo ar;
 
 
              // En metode kalled "hashpassword" der har en String af typen password som parameter.
