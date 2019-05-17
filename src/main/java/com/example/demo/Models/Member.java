@@ -1,4 +1,4 @@
-package Models;
+package com.example.demo.Models;
 
 public class Member {
     private int memberId;

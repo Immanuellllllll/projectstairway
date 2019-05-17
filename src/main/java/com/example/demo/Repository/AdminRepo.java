@@ -1,9 +1,8 @@
-package Repository;
+package com.example.demo.Repository;
 
 
-import Config.MySQLConnection;
-import Service.AdminService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.demo.Config.MySQLConnection;
+import com.example.demo.Service.AdminService;
 import org.springframework.stereotype.Repository;
 
 import javax.management.Query;

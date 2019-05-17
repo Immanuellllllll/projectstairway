@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="da-DK" prefix="og: http://ogp.me/ns#" >
+<html lang="da-DK" prefix="og: http://ogp.me/ns#" xmlns:th="http://www.thymeleaf.org">
 <head>
 		<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><meta name="format-detection" content="telephone=no"><title>Støt Stairways arbejde - Stairway - for gadebørn og alle børns rettigheder - Generalforsamling 2016</title>
 <script type="text/javascript">var ajaxurl = "http://www.stairway.dk/wp-admin/admin-ajax.php";</script>
@@ -414,7 +414,7 @@ var revapi2,
 <h4>Tilmeldingsformular</h4>
 <div role="form" class="wpcf7" id="wpcf7-f842-p275-o1" lang="da-DK" dir="ltr">
 <div class="screen-reader-response"></div>
-<form action="/stoet/#wpcf7-f842-p275-o1" method="post" class="wpcf7-form" novalidate="novalidate">
+<form action="/registerMember" method="post" class="wpcf7-form" novalidate="novalidate" th:object="${member}">
 <div style="display: none;">
 <input type="hidden" name="_wpcf7" value="842" />
 <input type="hidden" name="_wpcf7_version" value="5.0.5" />
