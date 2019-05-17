@@ -1,11 +1,26 @@
 package Repository;
 
+import Config.MySQLConnection;
 import Models.Member;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 @Repository
 public class MemberRepo {
+    Connection con;
+    MySQLConnection msc;
+
+    public MemberRepo(MySQLConnection msc) throws Exception
+    {
+        this.msc=msc;
+        this.con=msc.create();
+        //Lets load the driver
+
+    }
     /**
      *
      * @param member
@@ -33,9 +48,25 @@ public class MemberRepo {
         throw new UnsupportedOperationException();
     }
 
-    public ResultSet viewMembers() {
+    //Metoden prøver at sende en SQL sætning til databasen og lykkedes det sender den et resultset af alle patienter tilbage.
+
+    public ResultSet viewMembers() throws Exception {
+            String sql = "SELECT * FROM members";
+            try {
+                ResultSet rs = Query(sql);
+                return rs;
+            }catch (Exception e){
+                System.out.println(e);
+            }
+            return null;
         // TODO - implement MemberRepository.viewMembers
-        throw new UnsupportedOperationException();
+    }
+
+    //Metoden beder om en String og returnerer en ordre til at udføre den i databasen.
+    private ResultSet Query (String query) throws SQLException
+    {
+        Statement stmt = con.createStatement();
+        return (stmt.executeQuery(query));
     }
 
 }
