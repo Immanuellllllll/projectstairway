@@ -15,23 +15,27 @@ public class AdminRepo {
     Connection con;
     MySQLConnection msc;
 
-    public AdminRepo(MySQLConnection msc){
+    public AdminRepo(){
         this.msc=msc;
         this.msc= (MySQLConnection) msc.create();
     }
+
     public ResultSet confirmLogin() throws NoSuchAlgorithmException, SQLException {
         String username = "Nils";
         String password = admService.checkPassword();
         String q =
                 "SELECT from stairwaydatabase.admin WHERE username = '" +username+ "AND password= '"+password+"'";
         try {
-            ResultSet rs = new Query(q);
+            ResultSet rs = Query(q);
             return rs;
         } catch (Exception e){
             System.out.println(e);
         }
         return null;
     }
-    private
+    private ResultSet Query (String query) throws SQLException {
+        Statement stmt = con.createStatement();
+        return (stmt.executeQuery(query));
+    }
 
 }

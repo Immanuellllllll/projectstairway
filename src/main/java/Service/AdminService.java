@@ -6,11 +6,10 @@ import org.springframework.stereotype.Service;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
 
 @Service
 public class AdminService {
-    @Autowired
-    AdminRepo admRepo;
 
              // En metode kalled "hashpassword" der har en String af typen password som parameter.
             public static String hashPassword(String password) throws NoSuchAlgorithmException{
@@ -33,10 +32,14 @@ public class AdminService {
             return sb.toString();
         }
 
-    public static void main(String[] args) throws NoSuchAlgorithmException {
+    public static void main(String[] args) throws NoSuchAlgorithmException, SQLException {
         AdminService adm = new AdminService();
+
+        AdminRepo admRepo = new AdminRepo();
         //adm.kodeord();
         adm.checkPassword();
+        admRepo.confirmLogin();
+
     }
     /*
         public void kodeord() {
