@@ -13,7 +13,7 @@ public class MemberService {
     MemberRepo pr;
 
     public void registerMember(Member member) throws SQLException {
-        //pr.createPatient(patient.getCpr(),patient.getFirst_name(),patient.getLast_name(),patient.getAge(),patient.getAddress(),patient.getDob(),patient.getHeight(),patient.getWeight(),patient.isPenicillinallergy(),patient.isLactoseallergy(),patient.isGlutenallergy());
+        pr.createMember(11111,member.getFirstName(),member.getLastName(),member.getStreet(),member.getPostalcode(),member.getCity(),member.getEmail());
     }
 
 
