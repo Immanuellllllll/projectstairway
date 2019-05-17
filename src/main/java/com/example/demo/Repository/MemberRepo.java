@@ -18,7 +18,7 @@ public class MemberRepo {
 
     }
 
-    public void createMember(String firstName,String lastName,String street,String postalcode, String city, String email) throws SQLException {
+    public void registerMember(String firstName,String lastName,String street,String postalcode, String city, String email) throws SQLException {
         String q = "INSERT INTO members (firstname, lastname, street, postalcode, city, email)"+" VALUES (?, ?, ?, ?, ?, ?)";
         PreparedStatement preparedStmt = con.prepareStatement(q);
         preparedStmt.setString (1, firstName);

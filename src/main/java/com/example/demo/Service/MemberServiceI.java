@@ -5,11 +5,11 @@ import com.example.demo.Models.Member;
 import java.util.List;
 
 public interface MemberServiceI {
-    void registerMember(Member member);
+    void registerMember(Member member) throws Exception;
 
-    void editMember(Member member);
+    void editMember(Member member) throws Exception ;
 
-    void deleteMember(int memberid);
+    void deleteMember(int memberid) throws Exception ;
 
-    List<Member> viewMembers();
+    List<Member> viewAllMembers() throws Exception;
 }

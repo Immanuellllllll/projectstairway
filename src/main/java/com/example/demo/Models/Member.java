@@ -9,6 +9,16 @@ public class Member {
     private String city;
     private String email;
 
+    public Member(int memberId, String firstName, String lastName, String street, String postalcode, String city, String email) {
+        this.memberId = memberId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.street = street;
+        this.postalcode = postalcode;
+        this.city = city;
+        this.email = email;
+    }
+
     public int getMemberId() {
         return memberId;
     }
