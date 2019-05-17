@@ -41,7 +41,7 @@ public class MemberController {
         }
 
 
-        @GetMapping("showAllMembers")
+        @GetMapping("/showAllMembers")
         public String showAllMembers(Member member) throws Exception {
             member.addAttribute("medlemer", ms.getALL());
             member.addAttribute("medlem",new Member());
