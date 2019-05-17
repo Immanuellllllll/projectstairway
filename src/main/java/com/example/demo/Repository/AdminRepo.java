@@ -3,6 +3,7 @@ package com.example.demo.Repository;
 
 import com.example.demo.Config.MySQLConnection;
 import com.example.demo.Service.AdminService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.management.Query;
@@ -10,6 +11,7 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 @Repository
 public class AdminRepo {
+    @Autowired
     AdminService admService;
     Connection con;
     MySQLConnection msc;
