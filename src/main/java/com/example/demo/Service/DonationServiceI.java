@@ -1,6 +1,6 @@
-package Service;
+package com.example.demo.Service;
 
-import Models.Donation;
+import com.example.demo.Models.Donation;
 
 public interface DonationServiceI {
     void donate(Donation donation);

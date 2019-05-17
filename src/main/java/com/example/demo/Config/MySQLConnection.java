@@ -1,4 +1,4 @@
-package Config;
+package com.example.demo.Config;
 import org.springframework.context.annotation.Configuration;
 
 import java.sql.Connection;

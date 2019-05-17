@@ -1,7 +1,6 @@
-package Repository;
+package com.example.demo.Repository;
 
-import Config.MySQLConnection;
-import Models.Member;
+import com.example.demo.Config.MySQLConnection;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;

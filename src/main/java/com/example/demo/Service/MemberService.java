@@ -1,7 +1,7 @@
-package Service;
+package com.example.demo.Service;
 
-import Models.Member;
-import Repository.MemberRepo;
+import com.example.demo.Models.Member;
+import com.example.demo.Repository.MemberRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ public class MemberService {
     MemberRepo pr;
 
     public void registerMember(Member member) throws SQLException {
-        pr.createPatient(patient.getCpr(),patient.getFirst_name(),patient.getLast_name(),patient.getAge(),patient.getAddress(),patient.getDob(),patient.getHeight(),patient.getWeight(),patient.isPenicillinallergy(),patient.isLactoseallergy(),patient.isGlutenallergy());
+        //pr.createPatient(patient.getCpr(),patient.getFirst_name(),patient.getLast_name(),patient.getAge(),patient.getAddress(),patient.getDob(),patient.getHeight(),patient.getWeight(),patient.isPenicillinallergy(),patient.isLactoseallergy(),patient.isGlutenallergy());
     }
 
 
