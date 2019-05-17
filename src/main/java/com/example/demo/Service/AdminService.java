@@ -1,16 +1,20 @@
 package com.example.demo.Service;
 
-import com.example.demo.Repository.AdminRepo;
+import com.example.demo.Models.Admin;
+//import com.example.demo.Repository.AdminRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.lang.ClassNotFoundException;
+import java.sql.SQLException;
 
 @Service
-public class AdminService {
-    @Autowired
-    AdminRepo admRepo;
+public class AdminService implements AdminServiceI {
+    //@Autowired
+    //AdminRepo ar;
+
 
              // En metode kalled "hashpassword" der har en String af typen password som parameter.
             public static String hashPassword(String password) throws NoSuchAlgorithmException{
@@ -33,11 +37,6 @@ public class AdminService {
             return sb.toString();
         }
 
-    public static void main(String[] args) throws NoSuchAlgorithmException {
-        AdminService adm = new AdminService();
-        //adm.kodeord();
-        adm.checkPassword();
-    }
     /*
         public void kodeord() {
             //Vi definerer passwordet, det kunne ogsp være indput.
@@ -68,4 +67,8 @@ public class AdminService {
         }
 
 
+    @Override
+    public Boolean confirmLogin(Admin admin) {
+        return null;
+    }
 }
