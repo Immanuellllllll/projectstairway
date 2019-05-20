@@ -8,6 +8,15 @@ public class Member {
     private String postalcode;
     private String city;
     private String email;
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public int getMemberId() {
         return memberId;

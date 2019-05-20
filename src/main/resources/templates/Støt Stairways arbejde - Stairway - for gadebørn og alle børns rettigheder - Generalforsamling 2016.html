@@ -412,7 +412,7 @@ var revapi2,
 <div class="bodyText">
 <p><strong>Udfyld formularen</strong> herunder og send den med det samme. Du modtager et girokort i maj måned, som du skal bruge til at indbetale dit kontingent. Af praktiske og økonomiske grunde opkræver vi kun kontingent én gang om året.</p>
 <h4>Tilmeldingsformular</h4>
-<div role="form" class="wpcf7" id="wpcf7-f842-p275-o1" lang="da-DK" dir="ltr">
+<div role="form" class="" id="wpcf7-f842-p275-o1" lang="da-DK" dir="ltr">
 <div class="screen-reader-response"></div>
 <form action="/registerMember" method="post" class="wpcf7-form" novalidate="novalidate" th:object="${member}">
 <div style="display: none;">
@@ -424,19 +424,19 @@ var revapi2,
 </div>
 <p><span class="wpcf7-form-control-wrap ja-tak"><span class="wpcf7-form-control wpcf7-checkbox wpcf7-validates-as-required"><span class="wpcf7-list-item first last"><input type="checkbox" name="ja-tak[]" value="Ja, jeg vil gerne være medlem af Stairway Danmark. Et medlemsskab koster 150 kr. årligt." /><span class="wpcf7-list-item-label">Ja, jeg vil gerne være medlem af Stairway Danmark. Et medlemsskab koster 150 kr. årligt.</span></span></span></span></p>
 <p>Fornavn (skal udfyldes)<br />
-    <span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" th:value="member" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+    <span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" value="" th:field="*{firstName}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
 <p>Efternavn (skal udfyldes)<br />
-    <span class="wpcf7-form-control-wrap text-517"><input type="text" name="text-517" value="" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+    <span class="wpcf7-form-control-wrap text-517"><input type="text" name="text-517" value=""  th:field="*{lastName}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
 <p>Vej (skal udfyldes)<br />
-    <span class="wpcf7-form-control-wrap text-vej"><input type="text" name="text-vej" value="" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+    <span class="wpcf7-form-control-wrap text-vej"><input type="text" name="text-vej" value="" th:field="*{street}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
 <p>Postnummer (skal udfyldes)<br />
-    <span class="wpcf7-form-control-wrap text-postnummer"><input type="text" name="text-postnummer" value="" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+    <span class="wpcf7-form-control-wrap text-postnummer"><input type="text" name="text-postnummer" value="" th:field="*{postalcode}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
 <p>By (skal udfyldes)<br />
-    <span class="wpcf7-form-control-wrap text-by"><input type="text" name="text-by" value="" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+    <span class="wpcf7-form-control-wrap text-by"><input type="text" name="text-by" value="" th:field="*{city}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
 <p>Din e-mail (skal udfyldes)<br />
-    <span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" /></span> </p>
+    <span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" th:field="*{email}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" /></span> </p>
 <p>Evt. besked til Stairway Danmark<br />
-    <span class="wpcf7-form-control-wrap textarea-besked"><textarea name="textarea-besked" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"></textarea></span> </p>
+    <span class="wpcf7-form-control-wrap textarea-besked"><textarea name="textarea-besked" th:field="*{description}" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"></textarea></span> </p>
 <p><input type="submit" value="Tilmeld mig nu" class="wpcf7-form-control wpcf7-submit" /></p>
 <div class="wpcf7-response-output wpcf7-display-none"></div></form></div></div>
 

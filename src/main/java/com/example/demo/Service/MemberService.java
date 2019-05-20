@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 import java.sql.SQLException;
 import java.util.List;
 @Service
-public class MemberService {
+public class MemberService implements MemberServiceI{
     @Autowired
     MemberRepo pr;
 
     public void registerMember(Member member) throws SQLException {
-        pr.createMember(11111,member.getFirstName(),member.getLastName(),member.getStreet(),member.getPostalcode(),member.getCity(),member.getEmail());
+        pr.createMember(member.getFirstName(),member.getLastName(),member.getStreet(),member.getPostalcode(),member.getCity(),member.getEmail(),member.getDescription());
     }
 
 
