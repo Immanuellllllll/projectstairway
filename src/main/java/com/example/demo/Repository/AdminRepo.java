@@ -10,7 +10,6 @@ import com.example.demo.Models.Admin;
 
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
-
 @Repository
 public class AdminRepo {
     Connection con;
@@ -20,9 +19,9 @@ public class AdminRepo {
 
 
 
-    public ResultSet confirmLogin() throws NoSuchAlgorithmException, SQLException {
+    public ResultSet confirmLogin(Admin admin) throws NoSuchAlgorithmException, SQLException {
         String username = "Nils";
-        String password = adminService.confirmLogin(Admin admin);
+        String password = "john";
         String q =
                 "SELECT from stairwaydatabase.admin WHERE username = '" +username+ "AND password= '"+password+"'";
         try {

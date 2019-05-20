@@ -50,19 +50,20 @@ public class AdminService implements AdminServiceI {
         }
 
 
-    public Boolean confirmLogin(Admin admin) throws NoSuchAlgorithmException {
+    public String checkLogin(Admin admin) throws NoSuchAlgorithmException {
         //Vi tjekker lige og ser om det er det samme.
         //Vi tager passwordet, hasher det og ser om det er det samme som er i vores database.
         //Her udskifter vi selvfølgelig med SQL kald og hvad vi ellers har brug for.
-        String password = "Stairwaypassword1";//Indput fra hjemmeside.
-        String hashedPassword = hashPassword("Stairwaypassword1");
+        String password = admin.getPassword();//Indput fra hjemmeside.
+        String hashedPassword = hashPassword(admin.getPassword());
         if (hashPassword(password).equals(hashedPassword)) {
             System.out.println("Correct Password");
-            return true;
+
         } else {
             System.out.println("Incorrect Password");
-            return false;
+
         }
+        return password;
     }
 */
     @Override
