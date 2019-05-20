@@ -10,6 +10,10 @@ public class Member {
     private String email;
     private String description;
 
+    public Member() {
+
+    }
+
     public String getDescription() {
         return description;
     }

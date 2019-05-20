@@ -18,38 +18,36 @@ public class MemberController {
     @Autowired
     MemberServiceI ms;
 
-    @PostMapping ("/registerMember")
-    public String registerMember(){
-        //ms.registerMember(member);
+    @PostMapping("/registerMember")
+    public String registerMember(@ModelAttribute Member member) throws SQLException {
+        ms.registerMember(member);
         return "index";
     }
-    @GetMapping ("/a")
-    public String registerForm(Model model){
+
+    @GetMapping("/a")
+    public String registerForm(Model model) {
         model.addAttribute("member", new Member());
         return "Støt Stairways arbejde - Stairway - for gadebørn og alle børns rettigheder - Generalforsamling 2016";
     }
+
     @PostMapping("/EditMember")
     public String EditMember(@ModelAttribute Member member, HttpServletRequest request) throws SQLException {
-        ms.editmember(member);
+        ms.editMember(member);
         String referer = request.getHeader("Referer");
         return "test";
+    }
 
-        @PostMapping("/DeleteMember")
-        public String DeleteMember(@PathVariable int memberId) throws SQLException {
-            ms.deleteMember(memberId);
-            return "test";
-        }
-
-
-        @GetMapping("/showAllMembers")
-        public String showAllMembers(Member member) throws Exception {
-            member.addAttribute("medlemer", ms.getALL());
-            member.addAttribute("medlem",new Member());
-            return "test";
-        }
-
-        }
+    @PostMapping("/DeleteMember")
+    public String DeleteMember(@PathVariable int memberId) throws SQLException {
+        ms.deleteMember(memberId);
+        return "test";
+    }
 
 
+    @GetMapping("/showAllMembers")
+    public String showAllMembers(Model model) throws Exception {
+        model.addAttribute("medlemer", ms.viewMembers());
+        model.addAttribute("medlem", new Member());
+        return "test";
     }
 }

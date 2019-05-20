@@ -11,25 +11,21 @@ import java.util.ArrayList;
 import java.util.List;
 @Service
 public class MemberService implements MemberServiceI{
-
     @Autowired
     MemberRepo mr;
 
-    @Override
     public void registerMember(Member member) throws SQLException {
-        mr.registerMember(member.getFirstName(), member.getLastName(), member.getStreet(), member.getPostalcode(), member.getCity(), member.getEmail());
+        mr.registerMember(member.getFirstName(), member.getLastName(), member.getStreet(), member.getPostalcode(), member.getCity(), member.getEmail(),member.getDescription());
     }
 
-    @Override
-    public void editMember(Member member) throws Exception{
-       mr.editMember(member.getFirstName(), member.getLastName(), member.getStreet(), member.getPostalcode(), member.getCity(), member.getEmail());
+    public void editMember(Member member) throws SQLException {
+        mr.editMember(member.getFirstName(), member.getLastName(), member.getStreet(), member.getPostalcode(), member.getCity(), member.getEmail(),member.getDescription());
     }
 
-    public void deleteMember(int memberId) throws Exception {
+    public void deleteMember(int memberId) throws SQLException {
         mr.deleteMember(memberId);
     }
-    @Override
-    public List<Member> viewAllMembers() throws Exception {
+    public List<Member> viewMembers() throws Exception {
 
         ResultSet rs = mr.viewAllMembers();
 
