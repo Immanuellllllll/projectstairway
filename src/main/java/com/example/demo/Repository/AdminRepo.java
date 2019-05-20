@@ -13,15 +13,13 @@ import java.sql.*;
 @Repository
 public class AdminRepo {
     Connection con;
-    MySQLConnection msc;
     @Autowired
-    AdminService adminService;
+    AdminService adminServiceI;
 
-
-
+    //Vi tager username fra website, password taget vi igennem hash metoden fra Service. Så tjekker vi om den passer i Databasen.
     public ResultSet confirmLogin(Admin admin) throws NoSuchAlgorithmException, SQLException {
-        String username = "Nils";
-        String password = "john";
+        String username = admin.getUserName();
+        String password = adminServiceI.hashPassword(admin.getPassword());
         String q =
                 "SELECT from stairwaydatabase.admin WHERE username = '" +username+ "AND password= '"+password+"'";
         try {

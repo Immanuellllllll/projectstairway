@@ -15,7 +15,7 @@ public class AdminService implements AdminServiceI {
 
 
     // En metode kalled "hashpassword" der har en String af typen password som parameter.
-    public static String hashPassword(String password) throws NoSuchAlgorithmException {
+    public String hashPassword(String password) throws NoSuchAlgorithmException {
         //Vi laver en ny instance af MessageDigest.
         //getInstance("SHA-224") giver MessageDigest besked om hvilken Messagedigest vi vil have.
         MessageDigest md = MessageDigest.getInstance("SHA-224");
@@ -36,6 +36,12 @@ public class AdminService implements AdminServiceI {
         return sb.toString();
     }
 
+    @Override
+    public String confirmLogin(Admin admin) throws NoSuchAlgorithmException {
+        return null;
+    }
+}
+
     /*
         public void kodeord() {
             //Vi definerer passwordet, det kunne også være indput.
@@ -48,39 +54,5 @@ public class AdminService implements AdminServiceI {
                 System.out.println(e);
             }
         }
-
-
-    public String checkLogin(Admin admin) throws NoSuchAlgorithmException {
-        //Vi tjekker lige og ser om det er det samme.
-        //Vi tager passwordet, hasher det og ser om det er det samme som er i vores database.
-        //Her udskifter vi selvfølgelig med SQL kald og hvad vi ellers har brug for.
-        String password = admin.getPassword();//Indput fra hjemmeside.
-        String hashedPassword = hashPassword(admin.getPassword());
-        if (hashPassword(password).equals(hashedPassword)) {
-            System.out.println("Correct Password");
-
-        } else {
-            System.out.println("Incorrect Password");
-
-        }
-        return password;
-    }
 */
-    @Override
-    public String confirmLogin(Admin admin) throws NoSuchAlgorithmException {
-        //Vi tjekker lige og ser om det er det samme.
-        //Vi tager passwordet, hasher det og ser om det er det samme som er i vores database.
-        //Her udskifter vi selvfølgelig med SQL kald og hvad vi ellers har brug for.
-        String password = admin.getPassword();//Indput fra hjemmeside.
-        String hashedPassword = hashPassword(admin.getPassword());
-        if (hashPassword(admin.getPassword()).equals(hashedPassword)) {
-            System.out.println("Correct Password");
-            return password;
-        } else {
-            System.out.println("Incorrect Password");
-            //return false;
-        }
-        return password;
-    }
-}
 
