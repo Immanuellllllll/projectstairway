@@ -18,8 +18,8 @@ public class MemberRepo {
 
     }
 
-    public void createMember(String firstName,String lastName,String street,String postalcode, String city, String email, String description) throws SQLException {
-        String q = "INSERT INTO members (firstname, surname, street, postalcode, city, email, description)"+" VALUES (?, ?, ?, ?, ?, ?, ?)";
+    public void registerMember(String firstName,String lastName,String street,String postalcode, String city, String email) throws SQLException {
+        String q = "INSERT INTO members (firstname, lastname, street, postalcode, city, email)"+" VALUES (?, ?, ?, ?, ?, ?)";
         PreparedStatement preparedStmt = con.prepareStatement(q);
         preparedStmt.setString (1, firstName);
         preparedStmt.setString (2, lastName);
@@ -27,13 +27,12 @@ public class MemberRepo {
         preparedStmt.setString (4, postalcode);
         preparedStmt.setString (5, city);
         preparedStmt.setString (6, email);
-        preparedStmt.setString (7, description);
         preparedStmt.execute();
         preparedStmt.close();
     }
 
-    public void editMember(String firstName,String lastName,String street,String postalcode, String city, String email,String description) throws SQLException {
-        String q = "UPDATE members SET(firstname, lastname, street, postalcode, city, email, description)"+" VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    public void editMember(String firstName,String lastName,String street,String postalcode, String city, String email) throws SQLException {
+        String q = "UPDATE members SET(firstname, lastname, street, postalcode, city, email)"+" VALUES (?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement preparedStmt = con.prepareStatement(q);
         preparedStmt.setString (1, firstName);
         preparedStmt.setString (2, lastName);
@@ -41,7 +40,6 @@ public class MemberRepo {
         preparedStmt.setString (4, postalcode);
         preparedStmt.setString (5, city);
         preparedStmt.setString (6, email);
-        preparedStmt.setString (7, description);
         preparedStmt.execute();
         preparedStmt.close();
     }
