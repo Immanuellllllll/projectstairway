@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>AdminPage</title>
@@ -24,12 +24,12 @@
 <header>
 <img id="sdLogo" src="../Stairway Danmark Logo.jpg"/>
 </header>
-<form action="/">
+<form action="/Login" th:object="${admin}" method="post" >
     <div id="input">
     <p>Username:</p>
-    <input type="text">
+    <input type="text" th:field="*{userName}">
     <p>Password:</p>
-    <input type="password">
+    <input type="password" th:field="*{password}">
     <input type="submit" value="Log ind">
     </div>
 </form>
