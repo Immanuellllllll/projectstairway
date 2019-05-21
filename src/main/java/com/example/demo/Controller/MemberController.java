@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
-/*
+
 @Controller
 public class MemberController {
     @Autowired
@@ -37,18 +37,19 @@ public class MemberController {
         return "test";
     }
 
-    @PostMapping("/DeleteMember")
-    public String DeleteMember(@PathVariable int memberId) throws SQLException {
-        ms.deleteMember(memberId);
+    @PostMapping("/DeleteMember/{id}")
+    public String DeleteMember(@PathVariable int id) throws SQLException {
+        System.out.println("HHHEEEEEERERERERERE");
+        ms.deleteMember(id);
         return "test";
     }
 
 
     @GetMapping("/showAllMembers")
     public String showAllMembers(Model model) throws Exception {
-        model.addAttribute("medlemer", ms.viewMembers());
+        model.addAttribute("medlemmer", ms.viewMembers());
         model.addAttribute("medlem", new Member());
-        return "test";
+        return "backoffice";
     }
 }
-*/
+

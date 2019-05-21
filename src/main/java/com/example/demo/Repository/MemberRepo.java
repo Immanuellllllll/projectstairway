@@ -50,7 +50,7 @@ public class MemberRepo {
 
 
     public void deleteMember(int memberId) throws SQLException {
-       String q= "DELETE FROM members"+"WHERE memberId="+"(?)";
+        String q= "DELETE FROM members"+" WHERE memberId="+"(?)";
         PreparedStatement preparedStatement = con.prepareStatement(q);
         preparedStatement.setInt(1,memberId);
         preparedStatement.execute();

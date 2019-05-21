@@ -1,10 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        .ourtable{
+            width: 100px;
+        }
+        .ourtable tr th {
+            text-align: left;
+            font-size: 10px;
+            padding-right: 1px;
+
+        }
+
+        .ourtable tr, .ourtable td {
+            border: 1px solid black;
+            padding: 4px;
+        }
+    </style>
+
 </head>
 <body>
+        <table class="ourtable">
+            <tr>
+                <th>CPR</th>
+                <th>Fornavn</th>
+                <th>Efternavn</th>
+                <th>Alder</th>
+                <th>Adresse</th>
+                <th>Fødselsdato</th>
+                <th>Telefon</th>
 
+            </tr>
+            <tr th:each="medlem : ${medlemmer}">
+                <td th:text="${medlem.firstName}"></td>
+                <td th:text="${medlem.lastName}"></td>
+                <td th:text="${medlem.street}"></td>
+                <td th:text="${medlem.city}"></td>
+                <td th:text="${medlem.postalcode}"></td>
+                <td th:text="${medlem.email}"></td>
+                <td th:text="${medlem.description}"></td>
+
+                <td>
+                    <form th:action="@{/DeleteMember/{id}(id=${medlem.memberId})}" th:object="${medlem}" method="post">
+                        <input type="hidden" th:field="${medlem}"></input>
+                        <button class="btn btn-danger btn-sm" type="submit" onClick="return confirm('Slet denne patient?')">Slet</button>
+                        </a>
+                    </form>
+                </td>
+
+            </tr>
+        </table>
 </body>
 </html>

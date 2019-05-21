@@ -35,7 +35,7 @@ public class MemberService implements MemberServiceI{
         while (rs.next()) {
             int memberId = rs.getInt("memberid");
             String firstName = rs.getString("firstname");
-            String lastName = rs.getString("lastname");
+            String lastName = rs.getString("surname");
             String street = rs.getString("street");
             String postalcode = rs.getString("postalcode");
             String city = rs.getString("city");
