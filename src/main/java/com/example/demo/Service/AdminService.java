@@ -14,7 +14,7 @@ public class AdminService implements AdminServiceI {
     AdminRepo admRepo;
 
 
-    // En metode kalled "hashpassword" der har en String af typen password som parameter.
+    // En metode kaldet "hashpassword" der har en String af typen password som parameter.
     public String hashPassword(String password) throws NoSuchAlgorithmException {
         //Vi laver en ny instance af MessageDigest.
         //getInstance("SHA-224") giver MessageDigest besked om hvilken Messagedigest vi vil have.
