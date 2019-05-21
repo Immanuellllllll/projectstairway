@@ -2,11 +2,14 @@ package com.example.demo.Service;
 
 import com.example.demo.Models.Admin;
 import com.example.demo.Repository.AdminRepo;
+import com.mysql.cj.protocol.Resultset;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.xml.transform.Result;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Service
@@ -40,7 +43,10 @@ public class AdminService implements AdminServiceI {
     @Override
     public void confirmLogin(Admin admin) throws SQLException, NoSuchAlgorithmException {
         admin.setPassword(hashPassword(admin.getPassword()));
-        admRepo.confirmLogin(admin);
+        ResultSet rs =admRepo.confirmLogin(admin);
+        rs.next();
+        String checkLoginuser = rs.getString("username");
+        String checkLoginpass = rs.getString("password");
 
 
     }

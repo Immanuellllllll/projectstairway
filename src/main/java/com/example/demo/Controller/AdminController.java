@@ -27,11 +27,13 @@ public class AdminController {
     public String confirmLogin (@ModelAttribute Admin admin) throws SQLException, NoSuchAlgorithmException {
         try {
             As.confirmLogin(admin);
-            }
-        catch(Exception E) {
-            return "Login";
-            }
-        return "backoffice";
+            System.out.println(admin.getUserName());
+        }
+       catch(Exception e) {
+           System.out.println(e);
+           return "Login";
+        }
+        return "redirect:/showAllMembers";
     }
 
 }
