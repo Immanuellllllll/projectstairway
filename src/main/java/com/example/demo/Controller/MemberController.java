@@ -19,9 +19,10 @@ public class MemberController {
     MemberServiceI ms;
 
     @PostMapping("/registerMember")
-    public String registerMember(@ModelAttribute Member member) throws SQLException {
+    public String registerMember(@ModelAttribute Member member, HttpServletRequest request) throws SQLException {
         ms.registerMember(member);
-        return "index";
+        String referer = request.getHeader("Referer");
+return "redirect:"+referer;
     }
 
     @GetMapping("/a")

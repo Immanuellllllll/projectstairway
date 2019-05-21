@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
 
 @Service
 public class AdminService implements AdminServiceI {
@@ -37,8 +38,11 @@ public class AdminService implements AdminServiceI {
     }
 
     @Override
-    public String confirmLogin(Admin admin) throws NoSuchAlgorithmException {
-        return null;
+    public void confirmLogin(Admin admin) throws SQLException, NoSuchAlgorithmException {
+        admin.setPassword(hashPassword(admin.getPassword()));
+        admRepo.confirmLogin(admin);
+
+
     }
 }
 
