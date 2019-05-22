@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        .ourtable{
+            width: 100px;
+        }
+        .ourtable tr th {
+            text-align: left;
+            font-size: 10px;
+            padding-right: 1px;
+
+        }
+
+        .ourtable tr, .ourtable td {
+            border: 1px solid black;
+            padding: 4px;
+        }
+        table.dataTable thead .sorting:after,
+        table.dataTable thead .sorting:before,
+        table.dataTable thead .sorting_asc:after,
+        table.dataTable thead .sorting_asc:before,
+        table.dataTable thead .sorting_asc_disabled:after,
+        table.dataTable thead .sorting_asc_disabled:before,
+        table.dataTable thead .sorting_desc:after,
+        table.dataTable thead .sorting_desc:before,
+        table.dataTable thead .sorting_desc_disabled:after,
+        table.dataTable thead .sorting_desc_disabled:before {
+            bottom: .5em;
+        }
+    </style>
+
+</head>
+<body>
+<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+    <thead>
+            <tr>
+                <th class="th-sm">CPR</th>
+                <th class="th-sm">Fornavn</th>
+                <th class="th-sm">Efternavn</th>
+                <th class="th-sm">Alder</th>
+                <th class="th-sm">Adresse</th>
+                <th class="th-sm">Fødselsdato</th>
+                <th class="th-sm">Telefon</th>
+
+            </tr>
+    </thead>
+    <tbody>
+            <tr th:each="medlem : ${medlemmer}">
+                <td th:text="${medlem.firstName}"></td>
+                <td th:text="${medlem.lastName}"></td>
+                <td th:text="${medlem.street}"></td>
+                <td th:text="${medlem.city}"></td>
+                <td th:text="${medlem.postalcode}"></td>
+                <td th:text="${medlem.email}"></td>
+                <td th:text="${medlem.description}"></td>
+
+                <td>
+                    <form th:action="@{/DeleteMember/{id}(id=${medlem.memberId})}" th:object="${medlem}" method="post">
+                        <input type="hidden" th:field="${medlem}"></input>
+                        <button class="btn btn-danger btn-sm" type="submit" onClick="return confirm('Slet denne patient?')">Slet</button>
+                        </a>
+                    </form>
+                </td>
+            </tr>
+    </tbody>
+
+</table>
+</body>
+</html>
