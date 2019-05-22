@@ -1,6 +1,7 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Models.Member;
+import com.example.demo.Service.MemberService;
 import com.example.demo.Service.MemberServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,7 +40,7 @@ public class MemberController {
     }
     @GetMapping("/editMember")
     public String EditMember(Model model) throws Exception{
-        model.addAttribute("member",new Member());
+        model.addAttribute("member",ms.viewMember(1));
         return "editMember";
     }
 

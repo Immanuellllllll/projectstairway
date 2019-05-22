@@ -14,4 +14,6 @@ public interface MemberServiceI {
     void deleteMember(int memberid) throws SQLException;
 
     List<Member> viewMembers() throws Exception;
+
+    Member viewMember(int memberId) throws Exception;
 }
