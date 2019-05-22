@@ -40,17 +40,41 @@ public class MemberService implements MemberServiceI{
             String postalcode = rs.getString("postalcode");
             String city = rs.getString("city");
             String email = rs.getString("email");
-            Member member = new Member(memberId, firstName, lastName, street, postalcode, city, email);
+            String privatephone = rs.getString("privatephone");
+            String workphone = rs.getString("workphone");
+            String mobilephone = rs.getString("mobilephone");
+            String job  = rs.getString("job");
+            String fax = rs.getString("fax");
+            String description = rs.getString("describtion");
+            String lastpayed =rs.getString("Sidst betalt kontingent");
+            String memberStatus = rs.getString("medlemsstatus");
+            String volunteersstatus = rs.getString("volontørstatus");
+            Member member = new Member(memberId, firstName, lastName, street, postalcode, city, email, privatephone, workphone, mobilephone, job
+            , fax, description, lastpayed, memberStatus, volunteersstatus);
             memberList.add(member);
-
-
-
-
         }
-
         return memberList;
-
-
     }
-
+    public Member viewMember(int memberId) throws Exception {
+        ResultSet rs= mr.viewMember(memberId);
+        rs.next();
+        String firstName = rs.getString("firstname");
+        String lastName = rs.getString("surname");
+        String street = rs.getString("street");
+        String postalcode = rs.getString("postalcode");
+        String city = rs.getString("city");
+        String email = rs.getString("email");
+        String privatephone = rs.getString("privatephone");
+        String workphone = rs.getString("workphone");
+        String mobilephone = rs.getString("mobilephone");
+        String job  = rs.getString("job");
+        String fax = rs.getString("fax");
+        String description = rs.getString("describtion");
+        String lastpayed =rs.getString("Sidst betalt kontingent");
+        String memberStatus = rs.getString("medlemsstatus");
+        String volunteersstatus = rs.getString("volontørstatus");
+        Member member = new Member(memberId, firstName, lastName, street, postalcode, city, email, privatephone, workphone, mobilephone, job
+                , fax, description, lastpayed, memberStatus, volunteersstatus);
+        return member;
+    }
 }

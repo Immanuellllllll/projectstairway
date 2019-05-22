@@ -31,11 +31,16 @@ public class MemberController {
         return "Støt Stairways arbejde - Stairway - for gadebørn og alle børns rettigheder - Generalforsamling 2016";
     }
 
-    @PostMapping("/EditMember")
+    @PostMapping("/editMember")
     public String EditMember(@ModelAttribute Member member, HttpServletRequest request) throws SQLException {
         ms.editMember(member);
         String referer = request.getHeader("Referer");
-        return "test";
+        return "editMember";
+    }
+    @GetMapping("/editMember")
+    public String EditMember(Model model) throws Exception{
+        model.addAttribute("member",new Member());
+        return "editMember";
     }
 
     @PostMapping("/DeleteMember/{id}")
