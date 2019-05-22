@@ -22,7 +22,7 @@ public class MemberController {
     public String registerMember(@ModelAttribute Member member, HttpServletRequest request) throws SQLException {
         ms.registerMember(member);
         String referer = request.getHeader("Referer");
-return "redirect:"+referer;
+        return "redirect:"+referer;
     }
 
     @GetMapping("/a")

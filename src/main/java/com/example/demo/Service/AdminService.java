@@ -50,12 +50,11 @@ public class AdminService implements AdminServiceI {
 
 
     }
-}
 
-    /*
+/*
         public void kodeord() {
             //Vi definerer passwordet, det kunne også være indput.
-            String password = "Stairwaypassword1";
+            String password = "12345";
             try {
                 //Vi printer hashPassword metoden ud med vores password som parameter.
                 System.out.println(hashPassword(password));
@@ -64,5 +63,11 @@ public class AdminService implements AdminServiceI {
                 System.out.println(e);
             }
         }
-*/
+
+    public static void main(String[] args) {
+        AdminService adminService = new AdminService();
+        adminService.kodeord();
+    }
+    */
+}
 

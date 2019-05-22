@@ -18,6 +18,9 @@
         input{
             margin: auto;
             }
+        #loginbutton{
+            margin-top: 25px;
+        }
     </style>
 </head>
 <body>
@@ -30,7 +33,8 @@
     <input type="text" th:field="*{userName}">
     <p>Password:</p>
     <input type="password" th:field="*{password}">
-    <input type="submit" value="Log ind">
+        <br>
+    <input id="loginbutton" type="submit" value="Log ind">
     </div>
 </form>
 </body>
