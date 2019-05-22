@@ -49,8 +49,8 @@ public class MemberService implements MemberServiceI{
             String lastpayed =rs.getString("Sidst betalt kontingent");
             String memberStatus = rs.getString("medlemsstatus");
             String volunteersstatus = rs.getString("volontørstatus");
-            Member member = new Member(memberId, firstName, lastName, street, postalcode, city, email, privatephone, workphone, mobilephone, job
-            , fax, description, lastpayed, memberStatus, volunteersstatus);
+            Member member = new Member(memberId, firstName, lastName, street, postalcode, city, email,description, privatephone, mobilephone, workphone, job
+            , fax, lastpayed, memberStatus,volunteersstatus);
             memberList.add(member);
         }
         return memberList;
@@ -73,8 +73,8 @@ public class MemberService implements MemberServiceI{
         String lastpayed =rs.getString("Sidst betalt kontingent");
         String memberStatus = rs.getString("medlemsstatus");
         String volunteersstatus = rs.getString("volontørstatus");
-        Member member = new Member(memberId, firstName, lastName, street, postalcode, city, email, privatephone, workphone, mobilephone, job
-                , fax, description, lastpayed, memberStatus, volunteersstatus);
+        Member member = new Member(memberId, firstName, lastName, street, postalcode, city, email,description, privatephone, mobilephone, workphone, job
+                , fax, lastpayed, memberStatus,volunteersstatus);
         return member;
     }
 }
