@@ -36,13 +36,28 @@ HEADER
 			<table class="tdata table table-striped">
 				<thead>
 					<tr>
-						<th>Medlemsnummer</th>
 						<th>Navn</th>
 						<th>Efternavn</th>
+                        <th>Vej</th>
+                        <th>City</th>
 						<th>Postnummer</th>
-						<th>By</th>
-						<th>TLF.Privat</th>
-					</tr>
+						<th>Email</th>
+                        <th>Besked</th>
+                        <th>Privat tlf.</th>
+                        <th>Mobiltlf.</th>
+                        <th>Arbejdstlf.</th>
+                        <th>Job</th>
+                        <th>Fax</th>
+                        <th>Sidst betalt</th>
+                        <th>Medlemsstatus</th>
+                        <th>Frivillig</th>
+
+
+
+
+
+
+                    </tr>
 				</thead>
 				<tbody>
 				<tr th:each="medlem : ${medlemmer}">
@@ -51,8 +66,17 @@ HEADER
 					<td th:text="${medlem.street}"></td>
 					<td th:text="${medlem.city}"></td>
 					<td th:text="${medlem.postalcode}"></td>
-					<td th:text="${medlem.email}"></td>
-					</tr>
+                    <td th:text="${medlem.email}"></td>
+                    <td th:text="${medlem.description}"></td>
+                    <td th:text="${medlem.privatephone}"></td>
+                    <td th:text="${medlem.mobilephone}"></td>
+                    <td th:text="${medlem.workphone}"></td>
+                    <td th:text="${medlem.job}"></td>
+                    <td th:text="${medlem.fax}"></td>
+                    <td th:text="${medlem.lastpayed}"></td>
+                    <td th:text="${medlem.memberstatus}"></td>
+                    <td th:text="${medlem.volunteerstatus}"></td>
+                </tr>
 				</tbody>
 			</table>
 		</div><!-- /col -->
