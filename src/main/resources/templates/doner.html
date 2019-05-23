@@ -27,15 +27,94 @@
 <header>
     <img id="sdLogo" src="../Stairway Danmark Logo.jpg"/>
 </header>
-<form action="/Login" th:object="${admin}" method="post" >
-    <div id="input">
-        <p>Username:</p>
-        <input type="text" th:field="*{userName}">
-        <p>Password:</p>
-        <input type="password" th:field="*{password}">
-        <br>
-        <input id="loginbutton" type="submit" value="Log ind">
+<form action="https://payment.architrade.com/paymentweb/start.action" method="post" id="formDonation" class="my-4 border border-light rounded p-3" novalidate="">
+    <input type="hidden" name="merchant" value="90057402">
+
+
+    <input type="hidden" name="accepturl" value="https://danskkvindesamfund.dk/din-stoette/stoet-os/tak">
+    <input type="hidden" name="cancelurl" value="https://danskkvindesamfund.dk/din-stoette/stoet-os">
+    <input type="hidden" name="callbackurl" value="https://danskkvindesamfund.dk/din-stoette/stoet-os/dibs-donation-callback">
+
+    <input type="hidden" name="captureNow" value="1">
+    <input type="hidden" name="currency" value="DKK">
+    <input type="hidden" id="amount" name="amount" value="">
+    <input type="hidden" name="ordertype" value="donation">
+    <input type="hidden" name="ordertext" value="donation">
+    <input type="hidden" name="orderid" value="5ce6874d5467f">
+
+    <input type="hidden" name="decorator" value="responsive">
+
+    <h2 class="mb-3">Tak fordi du støtter Stairway Danmark</h2>
+
+    <div class="form-group-row">
+        <label class="" for="donationAmount">Skriv beløb</label>
+        <div class="input-group input-group-sm">
+            <span class="input-group-addon">DKK</span>
+            <input type="number" class="form-control form-control-sm" id="donationAmount" name="donationAmount" placeholder="beløb i hele kr" required="">
+            <div class="invalid-feedback"></div>
+        </div>
     </div>
+    <br>
+
+
+    <div class="form-group-row">
+        <label for="donationName">Navn</label>
+        <input type="text" class="form-control form-control-sm" id="donationName" name="donationName">
+        <small class="form-text text-muted">
+            Person eller virksomhed
+        </small>
+    </div>
+
+    <div class="form-group-row">
+        <label class="" for="donationAddress">Adresse</label>
+        <textarea class="form-control form-control-sm" id="donationAddress" name="donationAddress" rows="2"></textarea>
+        <small class="form-text text-muted">
+            Ved $8A-donationer skal navn og adresse oplyses
+        </small>
+    </div>
+
+    <div class="form-group-row">
+        <label class="" for="socialSecurity">CPR-nr.</label>
+        <input type="text" class="form-control form-control-sm" name="socialSecurity">
+        <small class="form-text text-muted">
+            Hvis du oplyser dit CPR-nr. i forbindelse med donationen, kan vi indberette dit fradrag til
+            SKAT
+        </small>
+    </div>
+
+    <div class="form-group-row">
+        <label for="donationEmail">E-mail</label>
+        <input type="email" class="form-control form-control-sm" id="donationEmail" name="donationEmail">
+        <p>
+            <small class="form-text text-muted">
+                Her modtager du en bekræftelse
+            </small>
+        </p>
+
+        <div class="form-check form-check-inline mt-1 ml-3">
+            <input class="form-check-input" type="checkbox" name="donationMailinglist" value="mailinglist">
+            <label class="form-check-label" for="donationMailinglist">
+                Jeg giver hermed Dansk Kvindesamfund tilladelse til at sende mig nyhedsbreve samt i øvrigt
+                kontakte mig om donationer
+            </label>
+        </div>
+
+        <div class="form-check form-check-inline mt-1 ml-3">
+            <input class="form-check-input" type="checkbox" name="gdpr" value="gdpr" required="">
+            <label class="form-check-label" for="gdpr">
+                Jeg giver hermed Dansk Kvindesamfund tilladelse til at opbevare mit navn, adresse, cpr-nummer samt emailadresse.
+            </label>
+        </div>
+        <p>Læs om vores <a href="https://danskkvindesamfund.dk/privatliv">privatlivspolitik.</a></p>
+    </div>
+
+    <div class="form-group-row mb-0">
+        <button type="submit" class="btn btn-primary btn-sm">
+            Donér
+        </button>
+    </div>
+</form>
+
 </form>
 </body>
 </html>
