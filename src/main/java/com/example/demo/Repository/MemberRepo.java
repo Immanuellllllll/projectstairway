@@ -32,16 +32,24 @@ public class MemberRepo {
         preparedStmt.close();
     }
 
-    public void editMember(String firstName,String lastName,String street,String postalcode, String city, String email,String description) throws SQLException {
-        String q = "UPDATE members SET(firstname, lastname, street, postalcode, city, email, description)"+" VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    public void editMember(String firstName,String lastName,String street,String postalcode, String city, String privatephone, String mobilephone,String workphone,String job, String fax, String email,String description, String Sidste_betalt_kontingent, String medlemsstatus,String volontørstatus) throws SQLException {
+        String q = "UPDATE members SET(firstname, lastname, street, postalcode, city, privatephone,mobilephone,workphone,job,fax, email, description,sidst_betalt_kontingent,medlemsstatus,volontørstatus)"+" VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement preparedStmt = con.prepareStatement(q);
         preparedStmt.setString (1, firstName);
         preparedStmt.setString (2, lastName);
         preparedStmt.setString (3, street);
         preparedStmt.setString (4, postalcode);
         preparedStmt.setString (5, city);
-        preparedStmt.setString (6, email);
-        preparedStmt.setString (7, description);
+        preparedStmt.setString(6, privatephone);
+        preparedStmt.setString(7, mobilephone);
+        preparedStmt.setString(8, workphone);
+        preparedStmt.setString(9, job);
+        preparedStmt.setString(10, fax);
+        preparedStmt.setString (11, email);
+        preparedStmt.setString (12, description);
+        preparedStmt.setString(13, Sidste_betalt_kontingent);
+        preparedStmt.setString(14, medlemsstatus);
+        preparedStmt.setString(15, volontørstatus);
         preparedStmt.execute();
         preparedStmt.close();
     }
