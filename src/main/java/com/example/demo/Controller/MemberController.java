@@ -23,7 +23,7 @@ public class MemberController {
     public String registerMember(@ModelAttribute Member member, HttpServletRequest request) throws SQLException {
         ms.registerMember(member);
         String referer = request.getHeader("Referer");
-        return "redirect:"+referer;
+        return "redirect:" + referer;
     }
 
     @GetMapping("/a")
@@ -38,15 +38,16 @@ public class MemberController {
         String referer = request.getHeader("Referer");
         return "editMember";
     }
+
     @GetMapping("/editMember")
-    public String EditMember(Model model) throws Exception{
-        model.addAttribute("member",ms.viewMember(1));
+    public String EditMember(Model model) throws Exception {
+        model.addAttribute("member", ms.viewMember(1));
         return "editMember";
     }
 
     @PostMapping("/DeleteMember/{id}")
     public String DeleteMember(@PathVariable int id) throws SQLException {
-        System.out.println("HHHEEEEEERERERERERE");
+        System.out.println(id);
         ms.deleteMember(id);
         return "test";
     }
@@ -57,6 +58,12 @@ public class MemberController {
         model.addAttribute("medlemmer", ms.viewMembers());
         model.addAttribute("medlem", new Member());
         return "backoffice";
+    }
+
+    @GetMapping("/showMember/{memberid}")
+    public String showMember(Model model, @PathVariable int memberid) throws Exception {
+        model.addAttribute("member", ms.viewMember(memberid));
+        return "Showsinglemember";
     }
 }
 

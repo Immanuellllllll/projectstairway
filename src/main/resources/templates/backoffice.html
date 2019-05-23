@@ -51,12 +51,7 @@ HEADER
                         <th>Sidst betalt</th>
                         <th>Medlemsstatus</th>
                         <th>Frivillig</th>
-
-
-
-
-
-
+						<th></th>
                     </tr>
 				</thead>
 				<tbody>
@@ -76,6 +71,13 @@ HEADER
                     <td th:text="${medlem.lastpayed}"></td>
                     <td th:text="${medlem.memberstatus}"></td>
                     <td th:text="${medlem.volunteerstatus}"></td>
+					<td>
+						<form th:action="@{/DeleteMember/{id}(id=${medlem.memberId})}" th:object="${medlem}" method="post">
+							<input type="hidden" th:field="${medlem}"></input>
+							<button class="btn btn-danger btn-sm" type="submit" onClick="return confirm('Slet denne patient?')">Slet</button>
+							</a>
+						</form>
+					</td>
                 </tr>
 				</tbody>
 			</table>
