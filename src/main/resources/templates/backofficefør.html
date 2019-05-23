@@ -35,10 +35,29 @@
         table.dataTable thead .sorting_desc_disabled:before {
             bottom: .5em;
         }
+
+         header{
+             background-color: white;
+             border-bottom: 5px solid #e20000;
+         }
+        #sdLogo {height: 100px;, width: 100 px;}
+        body {background-color: white;}
+        form{
+            height: 150px;
+            width: 300px;
+            margin: auto;
+        }
+        input{
+            margin: auto;
+        }
     </style>
+
 
 </head>
 <body>
+<header>
+    <img id="sdLogo" src="../Stairway Danmark Logo.jpg"/>
+</header>
 <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
     <thead>
             <tr>
@@ -64,7 +83,7 @@
 
                 <td>
                     <form th:action="@{/DeleteMember/{id}(id=${medlem.memberId})}" th:object="${medlem}" method="post">
-                        <input type="hidden" th:field="${medlem}"></input>
+                        <input type="hidden" th:field="${medlem}">
                         <button class="btn btn-danger btn-sm" type="submit" onClick="return confirm('Slet denne patient?')">Slet</button>
                         </a>
                     </form>

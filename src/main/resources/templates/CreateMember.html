@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>AdminPage</title>
+    <style>
+        header{
+            background-color: white;
+            border-bottom: 5px solid #e20000;
+        }
+        #sdLogo {height: 100px;, width: 100 px;}
+        body {background-color: white;}
+
+    </style>
+</head>
+<body>
+<header>
+    <img id="sdLogo" src="../Stairway Danmark Logo.jpg"/>
+</header>
+<form action="#" id="memberForm" th:action="@{/createMember}" th:object="${member}" method ="post">
+    <table>
+
+        <tr><th>Fornavn</th><td><input type="text" th:field="*{firstName}"></td></tr>
+
+        <tr><th>Efternavn</th><td><input type="text" th:field="*{lastName}"></td></tr>
+
+        <tr><th>Vejnavn</th><td><input type="text" th:field="*{street}"></td></tr>
+
+        <tr><th>Postnummer</th><td><input type="text" th:field="*{postalcode}"></td></tr>
+
+        <tr><th>By</th><td><input type="text" th:field="*{city}"></td></tr>
+
+        <tr><th>Private Tlf</th><td><input type="text" th:field="*{privatephone}"></td></tr>
+
+        <tr><th>Mobil tlf</th><td><input type="text" th:field="*{mobilephone}"></td></tr>
+
+        <tr><th>Arbejdstlf</th><td><input type="text" th:field="*{workphone}"></td></tr>
+
+        <tr><th>Job</th><td><input type="text" th:field="*{job}"></td></tr>
+
+        <tr><th>Fax</th><td><input type="text" th:field="*{fax}"></td></tr>
+
+        <tr><th>Email</th><td><input type="text" th:field="*{email}"></td></tr>
+
+        <tr><th>Beskrivelse</th><td><input type="text" th:field="*{description}"></td></tr>
+
+        <tr><th>Sidst Betalt Kontingent</th><td><input type="text" th:field="*{lastpayed}"></td></tr>
+
+        <tr><th>Medlemsstatus</th><td><input type="text" th:field="*{memberstatus}"></td></tr>
+
+        <tr><th>Volontørstatus</th><td><input type="text" th:field="*{volunteerstatus}"></td></tr>
+
+        <input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+
+    </table>
+</form>
+<div id="memberInfo">
+
+</div>
+
+</body>
+</html>

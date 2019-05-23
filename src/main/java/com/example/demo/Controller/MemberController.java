@@ -45,6 +45,19 @@ public class MemberController {
         return "editMember";
     }
 
+    @PostMapping("/createMember")
+    public String createMember(@ModelAttribute Member member, HttpServletRequest request) throws SQLException {
+        ms.registerMember(member);
+        member.setMemberId(1);
+        return "redirect:/showAllMembers";
+    }
+    @GetMapping("/createMember")
+    public String createMember(Model model) throws Exception{
+        model.addAttribute("member", new Member());
+        return "CreateMember";
+    }
+
+
     @PostMapping("/DeleteMember/{id}")
     public String DeleteMember(@PathVariable int id) throws SQLException {
         System.out.println(id);
