@@ -64,13 +64,13 @@ public class MemberService implements MemberServiceI{
         String postalcode = rs.getString("postalcode");
         String city = rs.getString("city");
         String email = rs.getString("email");
-        String privatephone = rs.getString("private phone");
-        String workphone = rs.getString("work phone");
-        String mobilephone = rs.getString("mobile phone");
+        String privatephone = rs.getString("privatephone");
+        String workphone = rs.getString("workphone");
+        String mobilephone = rs.getString("mobilephone");
         String job  = rs.getString("job");
         String fax = rs.getString("fax");
         String description = rs.getString("description");
-        String lastpayed =rs.getString("Sidst betalt kontingent");
+        String lastpayed =rs.getString("Sidst_betalt_kontingent");
         String memberStatus = rs.getString("medlemsstatus");
         String volunteersstatus = rs.getString("volontørstatus");
         Member member = new Member(memberId, firstName, lastName, street, postalcode, city, email,description, privatephone, mobilephone, workphone, job
