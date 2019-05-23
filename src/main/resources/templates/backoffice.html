@@ -47,16 +47,9 @@ HEADER
 					<tr>
 						<th>Navn</th>
 						<th>Efternavn</th>
-                        <th>Vej</th>
                         <th>by</th>
 						<th>Postnummer</th>
-						<th>Email</th>
-                        <th>Besked</th>
-                        <th>Privat tlf.</th>
-                        <th>Mobiltlf.</th>
-                        <th>Arbejdstlf.</th>
                         <th>Job</th>
-                        <th>Fax</th>
                         <th>Sidst betalt</th>
                         <th>Medlemsstatus</th>
                         <th>Frivillig</th>
@@ -67,16 +60,9 @@ HEADER
 				<tr th:each="medlem : ${medlemmer}">
 					<td> <a th:href="@{'/showMember/'+${medlem.memberId}}" th:text="${medlem.firstName}"></a></td>
 					<td th:text="${medlem.lastName}"></td>
-					<td th:text="${medlem.street}"></td>
 					<td th:text="${medlem.city}"></td>
 					<td th:text="${medlem.postalcode}"></td>
-                    <td th:text="${medlem.email}"></td>
-                    <td th:text="${medlem.description}"></td>
-                    <td th:text="${medlem.privatephone}"></td>
-                    <td th:text="${medlem.mobilephone}"></td>
-                    <td th:text="${medlem.workphone}"></td>
                     <td th:text="${medlem.job}"></td>
-                    <td th:text="${medlem.fax}"></td>
                     <td th:text="${medlem.lastpayed}"></td>
                     <td th:text="${medlem.memberstatus}"></td>
                     <td th:text="${medlem.volunteerstatus}"></td>
