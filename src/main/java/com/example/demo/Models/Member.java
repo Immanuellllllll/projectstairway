@@ -7,13 +7,13 @@ public class Member {
     private String street;
     private String postalcode;
     private String city;
-    private String email;
-    private String description;
     private String privatephone;
     private String mobilephone;
     private String workphone;
     private String job;
     private String fax;
+    private String email;
+    private String description;
     private String lastpayed;
     private String memberstatus;
     private String volunteerstatus;

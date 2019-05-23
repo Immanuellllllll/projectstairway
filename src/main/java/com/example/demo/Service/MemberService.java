@@ -19,7 +19,7 @@ public class MemberService implements MemberServiceI{
     }
 
     public void editMember(Member member) throws SQLException {
-        mr.editMember(member.getFirstName(), member.getLastName(), member.getStreet(), member.getPostalcode(), member.getCity(), member.getEmail(),member.getDescription());
+        mr.editMember(member.getFirstName(), member.getLastName(), member.getStreet(), member.getPostalcode(), member.getCity(),member.getPrivatephone(),member.getMobilephone(),member.getWorkphone(),member.getJob(),member.getFax(), member.getEmail(),member.getDescription(),member.getLastpayed(),member.getMemberstatus(),member.getVolunteerstatus());
     }
 
     public void deleteMember(int memberId) throws SQLException {
