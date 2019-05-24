@@ -87,7 +87,6 @@ public class MemberRepo {
     }
 
     public ResultSet viewMember(int memberId) throws Exception {
-        msc.create();
         String sql = "SELECT * FROM members WHERE memberid=" + memberId;
         try {
             ResultSet rs = Query(sql);
