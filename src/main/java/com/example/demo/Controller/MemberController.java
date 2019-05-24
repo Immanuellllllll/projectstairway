@@ -36,7 +36,7 @@ public class MemberController {
     public String EditMember(@ModelAttribute Member member, HttpServletRequest request) throws SQLException {
         ms.editMember(member);
         String referer = request.getHeader("Referer");
-        return "editMember";
+        return "redirect:/"+referer;
     }
 
     @GetMapping("/editMember/{memberid}")
@@ -73,10 +73,22 @@ public class MemberController {
         return "backoffice";
     }
 
+    @GetMapping("/showTest")
+    public String showAllMemberstwo (Model model) throws Exception {
+        model.addAttribute("medlemmer", ms.viewMembers());
+        model.addAttribute("medlem", new Member());
+        return "backofficetest";
+    }
     @GetMapping("/showMember/{memberid}")
     public String showMember(Model model, @PathVariable int memberid) throws Exception {
         model.addAttribute("member", ms.viewMember(memberid));
         return "Showsinglemember";
+    }
+    @PostMapping("/setDate/{memberid}")
+    public String setDate( @PathVariable int memberid, HttpServletRequest request) throws Exception {
+        ms.setDate(memberid);
+        String referer = request.getHeader("Referer");
+        return "redirect:"+referer;
     }
 }
 

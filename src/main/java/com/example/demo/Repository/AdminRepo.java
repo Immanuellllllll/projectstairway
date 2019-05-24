@@ -26,20 +26,25 @@ public class AdminRepo {
         String username = admin.getUserName();
         String password = admin.getPassword();
         System.out.println(username+"     "+password);
+        msc.create();
         String q =
                 "SELECT * from admin WHERE username = '" +username+ "' AND password= '"+password+"'";
-        //try {
+        try {
             ResultSet rs = Query(q);
             System.out.println("yep");
             return rs;
-       // } catch (Exception e){
-         //   System.out.println(e);
-        //}
-        //return null;
+       } catch (Exception e){
+            System.out.println(e);
+        }
+        finally {
+            con.close();
+        }
+        return null;
     }
     private ResultSet Query (String query) throws SQLException {
         Statement stmt = con.createStatement();
         return (stmt.executeQuery(query));
     }
+
 
 }

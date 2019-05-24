@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 @Service
@@ -56,6 +57,7 @@ public class MemberService implements MemberServiceI{
         return memberList;
     }
     public Member viewMember(int memberId) throws Exception {
+
         ResultSet rs= mr.viewMember(memberId);
         rs.next();
         String firstName = rs.getString("firstname");
@@ -76,5 +78,11 @@ public class MemberService implements MemberServiceI{
         Member member = new Member(memberId, firstName, lastName, street, postalcode, city, email,description, privatephone, mobilephone, workphone, job
                 , fax, lastpayed, memberStatus,volunteersstatus);
         return member;
+    }
+
+    @Override
+    public void setDate(int memberid) throws SQLException {
+        LocalDate d = LocalDate.now();
+        mr.setDate(memberid,d.toString());
     }
 }
