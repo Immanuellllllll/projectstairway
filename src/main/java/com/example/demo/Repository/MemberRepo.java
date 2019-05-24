@@ -30,6 +30,8 @@ public class MemberRepo {
         preparedStmt.setString (7, description);
         preparedStmt.execute();
         preparedStmt.close();
+        con.close();
+
     }
     public void editMember(int memberid, String firstName,String lastName,String street,String postalcode, String city, String privatephone, String mobilephone,String workphone,String job, String fax, String email,String description, String Sidst_betalt_kontingent, String medlemsstatus,String volontørstatus) throws SQLException {
 
@@ -53,6 +55,7 @@ public class MemberRepo {
         preparedStmt.setInt(16, memberid);
         preparedStmt.execute();
         preparedStmt.close();
+        con.close();
     }
 
 
@@ -62,7 +65,8 @@ public class MemberRepo {
         preparedStatement.setInt(1,memberId);
         preparedStatement.execute();
         preparedStatement.close();
-    }
+        con.close();
+        }
 
     //Metoden prøver at sende en SQL sætning til databasen og lykkedes det sender den et resultset af alle patienter tilbage.
 
@@ -71,9 +75,11 @@ public class MemberRepo {
             try {
                 ResultSet rs = Query(sql);
                 return rs;
+
             }catch (Exception e){
                 System.out.println(e);
             }
+            con.close();
             return null;
     }
 
@@ -85,6 +91,7 @@ public class MemberRepo {
         }catch (Exception e){
             System.out.println(e);
         }
+        con.close();
         return null;
     }
 

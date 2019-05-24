@@ -27,5 +27,7 @@ public class DonateRepo {
         preparedStmt.setInt (1, donation.getAmount());
         preparedStmt.setString (2, donation.getEmail());
         preparedStmt.setString (3, donation.getPhoneNumber());
+        preparedStmt.close();
+        con.close();
     }
 }
