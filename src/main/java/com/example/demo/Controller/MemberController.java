@@ -39,9 +39,9 @@ public class MemberController {
         return "editMember";
     }
 
-    @GetMapping("/editMember")
-    public String EditMember(Model model) throws Exception {
-        model.addAttribute("member", ms.viewMember(1));
+    @GetMapping("/editMember/{memberid}")
+    public String EditMember(Model model, @PathVariable int memberid) throws Exception {
+        model.addAttribute("member", ms.viewMember(memberid));
         return "editMember";
     }
 
