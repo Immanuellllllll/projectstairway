@@ -58,7 +58,7 @@ HEADER
 				</thead>
 				<tbody>
 				<tr th:each="medlem : ${medlemmer}">
-					<td> <a th:href="@{'/showMember/'+${medlem.memberId}}" th:text="${medlem.firstName}"></a></td>
+					<td> <a th:href="@{'/editMember/'+${medlem.memberId}}" th:text="${medlem.firstName}"></a></td>
 					<td th:text="${medlem.lastName}"></td>
 					<td th:text="${medlem.city}"></td>
 					<td th:text="${medlem.postalcode}"></td>

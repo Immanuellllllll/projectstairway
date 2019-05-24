@@ -57,6 +57,7 @@ public class MemberRepo {
         preparedStmt.execute();
         preparedStmt.close();
         con.close();
+        msc.connClose();
     }
 
 
@@ -82,11 +83,11 @@ public class MemberRepo {
             }catch (Exception e){
                 System.out.println(e);
             }
-            con.close();
             return null;
     }
 
     public ResultSet viewMember(int memberId) throws Exception {
+
         String sql = "SELECT * FROM members WHERE memberid=" + memberId;
         try {
             ResultSet rs = Query(sql);
@@ -94,7 +95,6 @@ public class MemberRepo {
         }catch (Exception e){
             System.out.println(e);
         }
-        con.close();
         return null;
     }
 

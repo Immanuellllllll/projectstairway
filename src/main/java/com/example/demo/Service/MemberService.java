@@ -56,6 +56,7 @@ public class MemberService implements MemberServiceI{
         return memberList;
     }
     public Member viewMember(int memberId) throws Exception {
+
         ResultSet rs= mr.viewMember(memberId);
         rs.next();
         String firstName = rs.getString("firstname");
