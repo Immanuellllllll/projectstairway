@@ -73,6 +73,12 @@ public class MemberController {
         return "backoffice";
     }
 
+    @GetMapping("/showTest")
+    public String showAllMemberstwo (Model model) throws Exception {
+        model.addAttribute("medlemmer", ms.viewMembers());
+        model.addAttribute("medlem", new Member());
+        return "backofficetest";
+    }
     @GetMapping("/showMember/{memberid}")
     public String showMember(Model model, @PathVariable int memberid) throws Exception {
         model.addAttribute("member", ms.viewMember(memberid));
