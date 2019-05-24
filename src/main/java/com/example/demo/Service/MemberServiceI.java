@@ -16,4 +16,6 @@ public interface MemberServiceI {
     List<Member> viewMembers() throws Exception;
 
     Member viewMember(int memberId) throws Exception;
+
+    void setDate(int memberid) throws SQLException;
 }

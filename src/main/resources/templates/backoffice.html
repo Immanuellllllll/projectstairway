@@ -45,14 +45,12 @@ HEADER
 			<table class="tdata table table-striped">
 				<thead>
 					<tr>
-						<th>Navn</th>
+						<th>Fornavn</th>
 						<th>Efternavn</th>
-                        <th>by</th>
-						<th>Postnummer</th>
-                        <th>Job</th>
-                        <th>Sidst betalt</th>
-                        <th>Medlemsstatus</th>
-                        <th>Frivillig</th>
+                        <th>Privat tlf.</th>
+						<th>Email</th>
+						<th>Sidst betalt</th>
+						<th>Knap</th>
 						<th></th>
                     </tr>
 				</thead>
@@ -60,21 +58,19 @@ HEADER
 				<tr th:each="medlem : ${medlemmer}">
 					<td> <a th:href="@{'/editMember/'+${medlem.memberId}}" th:text="${medlem.firstName}"></a></td>
 					<td th:text="${medlem.lastName}"></td>
-					<td th:text="${medlem.city}"></td>
-					<td th:text="${medlem.postalcode}"></td>
-                    <td th:text="${medlem.job}"></td>
+					<td th:text="${medlem.privatephone}"></td>
+					<td th:text="${medlem.email}"></td>
                     <td th:text="${medlem.lastpayed}"></td>
-                    <td th:text="${medlem.memberstatus}"></td>
-                    <td th:text="${medlem.volunteerstatus}"></td>
+					<td>
+					<form th:action="@{/setDate/{id}(id=${medlem.memberId})}" method="post">
+						<button class="btn btn-danger btn-sm" type="submit"></button>
+					</form>
+					</td>
+
 					<td>
 						<form th:action="@{/DeleteMember/{id}(id=${medlem.memberId})}" th:object="${medlem}" method="post">
 							<input type="hidden" th:field="${medlem}"></input>
 							<button class="btn btn-danger btn-sm" type="submit" onClick="return confirm('Slet denne patient?')">Slet</button>
-							</a>
-						</form>
-						<form th:action="@{/editMember/{id}(id=${medlem.memberId})}" th:object="${medlem}" method="get">
-							<input type="hidden" th:field="${medlem}"></input>
-							<button class="btn btn-danger btn-sm" type="submit">Rediger</button>
 							</a>
 						</form>
 					</td>
