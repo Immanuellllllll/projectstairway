@@ -22,6 +22,7 @@ public class DonateRepo {
     }
 
     public void donate(Donation donation) throws SQLException {
+        msc.create();
         String q = "INSERT INTO members (amount, email, phonenumber)"+" VALUES (?, ?, ?)";
         PreparedStatement preparedStmt = con.prepareStatement(q);
         preparedStmt.setInt (1, donation.getAmount());

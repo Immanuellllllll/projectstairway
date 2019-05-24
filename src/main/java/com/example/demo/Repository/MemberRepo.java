@@ -19,6 +19,7 @@ public class MemberRepo {
     }
 
     public void registerMember(String firstName,String lastName,String street,String postalcode, String city, String email, String description) throws SQLException {
+        msc.create();
         String q = "INSERT INTO members (firstname, surname, street, postalcode, city, email, description)"+" VALUES (?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement preparedStmt = con.prepareStatement(q);
         preparedStmt.setString (1, firstName);
@@ -34,7 +35,7 @@ public class MemberRepo {
 
     }
     public void editMember(int memberid, String firstName,String lastName,String street,String postalcode, String city, String privatephone, String mobilephone,String workphone,String job, String fax, String email,String description, String Sidst_betalt_kontingent, String medlemsstatus,String volontørstatus) throws SQLException {
-
+        msc.create();
         String q = "UPDATE members SET firstname=?, surname=?, street=?, postalcode=?, city=?, privatephone=?, mobilephone=?, workphone=?, job=?, fax=?, email=?, description=?, sidst_betalt_kontingent=?, medlemsstatus=?, volontørstatus=?"+" where memberid=?";
         PreparedStatement preparedStmt = con.prepareStatement(q);
         preparedStmt.setString (1, firstName);
@@ -60,6 +61,7 @@ public class MemberRepo {
 
 
     public void deleteMember(int memberId) throws SQLException {
+        msc.create();
         String q= "DELETE FROM members"+" WHERE memberId="+"(?)";
         PreparedStatement preparedStatement = con.prepareStatement(q);
         preparedStatement.setInt(1,memberId);
@@ -71,6 +73,7 @@ public class MemberRepo {
     //Metoden prøver at sende en SQL sætning til databasen og lykkedes det sender den et resultset af alle patienter tilbage.
 
     public ResultSet viewAllMembers() throws Exception {
+            msc.create();
             String sql = "SELECT * FROM members";
             try {
                 ResultSet rs = Query(sql);
@@ -84,6 +87,7 @@ public class MemberRepo {
     }
 
     public ResultSet viewMember(int memberId) throws Exception {
+        msc.create();
         String sql = "SELECT * FROM members WHERE memberid=" + memberId;
         try {
             ResultSet rs = Query(sql);

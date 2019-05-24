@@ -26,6 +26,7 @@ public class AdminRepo {
         String username = admin.getUserName();
         String password = admin.getPassword();
         System.out.println(username+"     "+password);
+        msc.create();
         String q =
                 "SELECT * from admin WHERE username = '" +username+ "' AND password= '"+password+"'";
         try {
