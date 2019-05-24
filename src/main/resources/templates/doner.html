@@ -1,118 +1,95 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="da-DK" prefix="og: http://ogp.me/ns#" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>AdminPage</title>
-    <style>
-        header{
-            background-color: white;
-            border-bottom: 5px solid #e20000;
-        }
-        #sdLogo {height: 100px;, width: 100 px;}
-        body {background-color: white;}
-        form{
-            height: 150px;
-            width: 300px;
-            margin: auto;
-        }
-        input{
-            margin: auto;
-        }
-        #loginbutton{
-            margin-top: 25px;
-        }
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" /><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><meta name="format-detection" content="telephone=no"><title>Støt Stairways arbejde - Stairway - for gadebørn og alle børns rettigheder - Generalforsamling 2016</title>
+    <title>doner</title>
+    <script type="text/javascript">var ajaxurl = "http://www.stairway.dk/wp-admin/admin-ajax.php";</script>
+
+    <link rel='stylesheet' id='theme-styles-css'  href='http://www.stairway.dk/wp-content/themes/jupiter/assets/stylesheet/min/full-styles.6.1.6.css?ver=1544189002' type='text/css' media='all' />
+    <style id='theme-styles-inline-css' type='text/css'>
+        body { background-color:#fff; } .hb-custom-header #mk-page-introduce, .mk-header { background-color:#f7f7f7;background-size:cover;-webkit-background-size:cover;-moz-background-size:cover; } .hb-custom-header > div, .mk-header-bg { background-color:#ffffff; } .mk-classic-nav-bg { background-color:#ffffff; } .master-holder-bg { background-color:#fff; } #mk-footer { background-color:#3d4045; } #mk-boxed-layout { -webkit-box-shadow:0 0 0px rgba(0, 0, 0, 0); -moz-box-shadow:0 0 0px rgba(0, 0, 0, 0); box-shadow:0 0 0px rgba(0, 0, 0, 0); } .mk-news-tab .mk-tabs-tabs .is-active a, .mk-fancy-title.pattern-style span, .mk-fancy-title.pattern-style.color-gradient span:after, .page-bg-color { background-color:#fff; } .page-title { font-size:20px; color:#4d4d4d; text-transform:uppercase; font-weight:400; letter-spacing:2px; } .page-subtitle { font-size:14px; line-height:100%; color:#a3a3a3; font-size:14px; text-transform:none; } .mk-header.sticky-style-fixed.a-sticky .mk-header-holder{ border-bottom:1px solid #d73521; } .header-style-1 .mk-header-padding-wrapper, .header-style-2 .mk-header-padding-wrapper, .header-style-3 .mk-header-padding-wrapper { padding-top:91px; } .mk-process-steps[max-width~="950px"] ul::before { display:none !important; } .mk-process-steps[max-width~="950px"] li { margin-bottom:30px !important; width:100% !important; text-align:center; } .mk-event-countdown-ul[max-width~="750px"] li { width:90%; display:block; margin:0 auto 15px; } .compose-mode .vc_element-name .vc_btn-content { height:auto !important; } body, p { font-family:Lato } h1, h2, h3, h4, h5, h6, .main-navigation-ul, .mk-vm-menuwrapper, #mk-footer-navigation ul li a { font-family:Oswald } @font-face { font-family:'star'; src:url('http://www.stairway.dk/wp-content/themes/jupiter/assets/stylesheet/fonts/star/font.eot'); src:url('http://www.stairway.dk/wp-content/themes/jupiter/assets/stylesheet/fonts/star/font.eot?#iefix') format('embedded-opentype'), url('http://www.stairway.dk/wp-content/themes/jupiter/assets/stylesheet/fonts/star/font.woff') format('woff'), url('http://www.stairway.dk/wp-content/themes/jupiter/assets/stylesheet/fonts/star/font.ttf') format('truetype'), url('http://www.stairway.dk/wp-content/themes/jupiter/assets/stylesheet/fonts/star/font.svg#star') format('svg'); font-weight:normal; font-style:normal; } @font-face { font-family:'WooCommerce'; src:url('http://www.stairway.dk/wp-content/themes/jupiter/assets/stylesheet/fonts/woocommerce/font.eot'); src:url('http://www.stairway.dk/wp-content/themes/jupiter/assets/stylesheet/fonts/woocommerce/font.eot?#iefix') format('embedded-opentype'), url('http://www.stairway.dk/wp-content/themes/jupiter/assets/stylesheet/fonts/woocommerce/font.woff') format('woff'), url('http://www.stairway.dk/wp-content/themes/jupiter/assets/stylesheet/fonts/woocommerce/font.ttf') format('truetype'), url('http://www.stairway.dk/wp-content/themes/jupiter/assets/stylesheet/fonts/woocommerce/font.svg#WooCommerce') format('svg'); font-weight:normal; font-style:normal; }#mk-footer { background-color:#1a1c1e; padding:25px 0 20px !important; } .mk-footer-copyright { float:none !important; opacity:0.8; padding:25px 0 20px !important; } .mk-footer-copyright a { color:#f97e00; } .laesmere a { font-family:Oswald; font-size:16px !important; color:#000000; text-transform:uppercase; } .wpcf7-form .wpcf7-textarea { width:42% !important; }
     </style>
-</head>
-<body>
-<header>
-    <img id="sdLogo" src="../Stairway Danmark Logo.jpg"/>
-</header>
-<form action="https://payment.architrade.com/paymentweb/start.action" method="post" id="formDonation" class="my-4 border border-light rounded p-3" novalidate="">
-    <input type="hidden" name="merchant" value="90057402">
+    <link rel='stylesheet' id='mkhb-render-css'  href='http://www.stairway.dk/wp-content/themes/jupiter/header-builder/includes/assets/css/mkhb-render.css?ver=6.1.6' type='text/css' media='all' />
+    <link rel='stylesheet' id='mkhb-row-css'  href='http://www.stairway.dk/wp-content/themes/jupiter/header-builder/includes/assets/css/mkhb-row.css?ver=6.1.6' type='text/css' media='all' />
+    <link rel='stylesheet' id='mkhb-column-css'  href='http://www.stairway.dk/wp-content/themes/jupiter/header-builder/includes/assets/css/mkhb-column.css?ver=6.1.6' type='text/css' media='all' />
+    <link rel='stylesheet' id='js_composer_front-css'  href='http://www.stairway.dk/wp-content/plugins/js_composer_theme/assets/css/js_composer.min.css?ver=5.5.5' type='text/css' media='all' />
+    <link rel='stylesheet' id='theme-options-css'  href='http://www.stairway.dk/wp-content/uploads/mk_assets/theme-options-production-1557732696.css?ver=1557731977' type='text/css' media='all' />
+    <link rel='stylesheet' id='mk-style-css'  href='http://www.stairway.dk/wp-content/themes/jupiter-child/style.css?ver=4.9.10' type='text/css' media='all' />
+    <script type='text/javascript' src='http://www.stairway.dk/wp-content/themes/jupiter/assets/js/plugins/wp-enqueue/min/webfontloader.js?ver=4.9.10'></script>
+    <script type='text/javascript'>
+        WebFontConfig = {
+            timeout: 2000
+        }
 
+        if ( mk_typekit_id.length > 0 ) {
+            WebFontConfig.typekit = {
+                id: mk_typekit_id
+            }
+        }
 
-    <input type="hidden" name="accepturl" value="https://danskkvindesamfund.dk/din-stoette/stoet-os/tak">
-    <input type="hidden" name="cancelurl" value="https://danskkvindesamfund.dk/din-stoette/stoet-os">
-    <input type="hidden" name="callbackurl" value="https://danskkvindesamfund.dk/din-stoette/stoet-os/dibs-donation-callback">
+        if ( mk_google_fonts.length > 0 ) {
+            WebFontConfig.google = {
+                families:  mk_google_fonts
+            }
+        }
 
-    <input type="hidden" name="captureNow" value="1">
-    <input type="hidden" name="currency" value="DKK">
-    <input type="hidden" id="amount" name="amount" value="">
-    <input type="hidden" name="ordertype" value="donation">
-    <input type="hidden" name="ordertext" value="donation">
-    <input type="hidden" name="orderid" value="5ce6874d5467f">
+        if ( (mk_google_fonts.length > 0 || mk_typekit_id.length > 0) && navigator.userAgent.indexOf("Speed Insights") == -1) {
+            WebFont.load( WebFontConfig );
+        }
 
-    <input type="hidden" name="decorator" value="responsive">
+    </script>
+    <script type='text/javascript' src='http://www.stairway.dk/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+    <script type='text/javascript' src='http://www.stairway.dk/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+    <script type='text/javascript' src='http://www.stairway.dk/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.tools.min.js?ver=5.4.8'></script>
+    <script type='text/javascript' src='http://www.stairway.dk/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.revolution.min.js?ver=5.4.8'></script>
+    <link rel='https://api.w.org/' href='http://www.stairway.dk/wp-json/' />
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.stairway.dk/xmlrpc.php?rsd" />
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.stairway.dk/wp-includes/wlwmanifest.xml" />
+    <link rel='shortlink' href='http://www.stairway.dk/?p=275' />
+    <link rel="alternate" type="application/json+oembed" href="http://www.stairway.dk/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.stairway.dk%2Fstoet%2F" />
+    <link rel="alternate" type="text/xml+oembed" href="http://www.stairway.dk/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.stairway.dk%2Fstoet%2F&#038;format=xml" />
+    <script> var isTest = false; </script><meta itemprop="author" content="Tune Nyborg" /><meta itemprop="datePublished" content="17. maj 2016" /><meta itemprop="dateModified" content="22. marts 2019" /><meta itemprop="publisher" content="Stairway - for gadebørn og alle børns rettigheder - Generalforsamling 2016" />		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+    <meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress."/>
+    <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="http://www.stairway.dk/wp-content/plugins/js_composer_theme/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><meta name="generator" content="Powered by Slider Revolution 5.4.8 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
+    <script type="text/javascript">function setREVStartSize(e){
+        try{ e.c=jQuery(e.c);var i=jQuery(window).width(),t=9999,r=0,n=0,l=0,f=0,s=0,h=0;
+            if(e.responsiveLevels&&(jQuery.each(e.responsiveLevels,function(e,f){f>i&&(t=r=f,l=e),i>f&&f>r&&(r=f,n=e)}),t>r&&(l=n)),f=e.gridheight[l]||e.gridheight[0]||e.gridheight,s=e.gridwidth[l]||e.gridwidth[0]||e.gridwidth,h=i/s,h=h>1?1:h,f=Math.round(h*f),"fullscreen"==e.sliderLayout){var u=(e.c.width(),jQuery(window).height());if(void 0!=e.fullScreenOffsetContainer){var c=e.fullScreenOffsetContainer.split(",");if (c) jQuery.each(c,function(e,i){u=jQuery(i).length>0?u-jQuery(i).outerHeight(!0):u}),e.fullScreenOffset.split("%").length>1&&void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0?u-=jQuery(window).height()*parseInt(e.fullScreenOffset,0)/100:void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0&&(u-=parseInt(e.fullScreenOffset,0))}f=u}else void 0!=e.minHeight&&f<e.minHeight&&(f=e.minHeight);e.c.closest(".rev_slider_wrapper").css({height:f})
+        }catch(d){console.log("Failure at Presize of Slider:"+d)}
+    };</script>
+    <meta name="generator" content="Jupiter Child Theme 5.0.10" /><style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1462522929266{background-color: #cec2ab !important;}.vc_custom_1462372847597{padding-right: 30px !important;}.vc_custom_1462372693613{padding-top: 20px !important;padding-right: 20px !important;padding-left: 20px !important;border-radius: 1px !important;}.vc_custom_1553242253865{margin-bottom: 0px !important;}.vc_custom_1553242197533{margin-bottom: 0px !important;}.vc_custom_1553242046908{margin-bottom: 0px !important;}.vc_custom_1462523521722{padding-top: 30px !important;}</style><noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript>	</head>
 
-    <h2 class="mb-3">Tak fordi du støtter Stairway Danmark</h2>
-
-    <div class="form-group-row">
-        <label class="" for="donationAmount">Skriv beløb</label>
-        <div class="input-group input-group-sm">
-            <span class="input-group-addon">DKK</span>
-            <input type="number" class="form-control form-control-sm" id="donationAmount" name="donationAmount" placeholder="beløb i hele kr" required="">
-            <div class="invalid-feedback"></div>
+<h4>Tilmeldingsformular</h4>
+<div role="form" class="" id="wpcf7-f842-p275-o1" lang="da-DK" dir="ltr">
+    <div class="screen-reader-response"></div>
+    <form action="/registerMember" method="post" class="wpcf7-form" novalidate="novalidate" th:object="${member}">
+        <div style="display: none;">
+            <input type="hidden" name="_wpcf7" value="842" />
+            <input type="hidden" name="_wpcf7_version" value="5.0.5" />
+            <input type="hidden" name="_wpcf7_locale" value="da_DK" />
+            <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f842-p275-o1" />
+            <input type="hidden" name="_wpcf7_container_post" value="275" />
         </div>
-    </div>
-    <br>
+        <p><span class="wpcf7-form-control-wrap ja-tak"><span class="wpcf7-form-control wpcf7-checkbox wpcf7-validates-as-required"><span class="wpcf7-list-item first last"><input type="checkbox" name="ja-tak[]" value="Jeg giver hermed Stairway Danmark tilladelse til at opbevare mit navn, adresse, cpr-nummer samt emailadresse." /><span class="wpcf7-list-item-label">Jeg giver hermed Stairway Danmark tilladelse til at opbevare mit navn, adresse, cpr-nummer samt emailadresse.</span></span></span></span></p>
+        <p>Fornavn (skal udfyldes)<br />
+            <span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" value="" th:field="*{firstName}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+        <p>Efternavn (skal udfyldes)<br />
+            <span class="wpcf7-form-control-wrap text-517"><input type="text" name="text-517" value=""  th:field="*{lastName}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+        <p>Vej (skal udfyldes)<br />
+            <span class="wpcf7-form-control-wrap text-vej"><input type="text" name="text-vej" value="" th:field="*{street}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+        <p>Postnummer (skal udfyldes)<br />
+            <span class="wpcf7-form-control-wrap text-postnummer"><input type="text" name="text-postnummer" value="" th:field="*{postalcode}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+        <p>By (skal udfyldes)<br />
+            <span class="wpcf7-form-control-wrap text-by"><input type="text" name="text-by" value="" th:field="*{city}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+        <p>Din e-mail (skal udfyldes)<br />
+            <span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" th:field="*{email}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" /></span> </p>
 
+        <p><input type="submit" value="Stødt nu" class="wpcf7-form-control wpcf7-submit" /></p>
+        <div class="wpcf7-response-output wpcf7-display-none"></div></form></div></div>
 
-    <div class="form-group-row">
-        <label for="donationName">Navn</label>
-        <input type="text" class="form-control form-control-sm" id="donationName" name="donationName">
-        <small class="form-text text-muted">
-            Person eller virksomhed
-        </small>
-    </div>
+<div class="clearboth"></div>
+</div>
 
-    <div class="form-group-row">
-        <label class="" for="donationAddress">Adresse</label>
-        <textarea class="form-control form-control-sm" id="donationAddress" name="donationAddress" rows="2"></textarea>
-        <small class="form-text text-muted">
-            Ved $8A-donationer skal navn og adresse oplyses
-        </small>
-    </div>
-
-    <div class="form-group-row">
-        <label class="" for="socialSecurity">CPR-nr.</label>
-        <input type="text" class="form-control form-control-sm" name="socialSecurity">
-        <small class="form-text text-muted">
-            Hvis du oplyser dit CPR-nr. i forbindelse med donationen, kan vi indberette dit fradrag til
-            SKAT
-        </small>
-    </div>
-
-    <div class="form-group-row">
-        <label for="donationEmail">E-mail</label>
-        <input type="email" class="form-control form-control-sm" id="donationEmail" name="donationEmail">
-        <p>
-            <small class="form-text text-muted">
-                Her modtager du en bekræftelse
-            </small>
-        </p>
-
-        <div class="form-check form-check-inline mt-1 ml-3">
-            <input class="form-check-input" type="checkbox" name="donationMailinglist" value="mailinglist">
-            <label class="form-check-label" for="donationMailinglist">
-                Jeg giver hermed Dansk Kvindesamfund tilladelse til at sende mig nyhedsbreve samt i øvrigt
-                kontakte mig om donationer
-            </label>
-        </div>
-
-        <div class="form-check form-check-inline mt-1 ml-3">
-            <input class="form-check-input" type="checkbox" name="gdpr" value="gdpr" required="">
-            <label class="form-check-label" for="gdpr">
-                Jeg giver hermed Dansk Kvindesamfund tilladelse til at opbevare mit navn, adresse, cpr-nummer samt emailadresse.
-            </label>
-        </div>
-        <p>Læs om vores <a href="https://danskkvindesamfund.dk/privatliv">privatlivspolitik.</a></p>
-    </div>
-
-    <div class="form-group-row mb-0">
-        <button type="submit" class="btn btn-primary btn-sm">
-            Donér
-        </button>
-    </div>
+</div>
 </form>
 
 </form>

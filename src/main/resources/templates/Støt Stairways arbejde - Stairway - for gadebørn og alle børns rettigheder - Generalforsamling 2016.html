@@ -451,12 +451,30 @@ var revapi2,
 	
 	<div class="bodyText">
 <h2>Giv en donation</h2>
-		<a href="doner.html" target="_self" role="button" class="button" style="color:#fff;background-color:#d83b27"><span class="mk-button--text">STØT NU</span></a>
+		<div role="form" class="" id="wpcf7-f842-p275-o1" lang="da-DK" dir="ltr">
+			<div class="screen-reader-response"></div>
+			<form action="/registerMember" method="post" class="wpcf7-form" novalidate="novalidate" th:object="${donation}">
+				<div style="display: none;">
+					<input type="hidden" name="_wpcf7" value="842" />
+					<input type="hidden" name="_wpcf7_version" value="5.0.5" />
+					<input type="hidden" name="_wpcf7_locale" value="da_DK" />
+					<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f842-p275-o1" />
+					<input type="hidden" name="_wpcf7_container_post" value="275" />
+				</div>
+
+
+				<p>Skrive beløb (i hele kroner)<br />
+					<span class="wpcf7-form-control-wrap amount"><input type="text" name="amount" value="" th:field="*{amount}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+				<p>CPR-nummer<br />
+					<span class="wpcf7-form-control-wrap text-cpr"><input type="text" name="text-cpr" value=""  th:field="*{cpr}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+				<p>Telefonnummer<br />
+					<span class="wpcf7-form-control-wrap text-phone"><input type="text" name="text-phone" value="" th:field="*{phone}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+		<a href="doner.html" target="_self" role="button" class="button" style="color:#fff;background-color:#d83b27"><span class="mk-button--text">GÅ TIL BETALING</span></a>
 		<br>
 		<br>
 
 <h4>Få fradrag for din gave</h4>
-<p>Stairway Danmark er godkendt af skattemyndighederne som en velgørende organisation. Derfor kan du trække gaver op til 16.300 kr. fra i skat. For ægtepar er tallet det dobbelte. <em>Bemærk: Dit kontingent kan IKKE trækkes fra &#8211; kun støttebeløb ud over kontingentet.</em></p>
+<p>Stairway Danmark er godkendt af skattemyndighederne som en velgørende organisation. Derfor kan du trække gaver fra 200 kr. og op til 16.300 kr. fra i skat. For ægtepar er tallet det dobbelte. <em>Bemærk: Dit kontingent kan IKKE trækkes fra &#8211; kun støttebeløb ud over kontingentet.</em></p>
 <p>For at få fradrag skal vi bruge dit cpr-nummer.  SKAT kræver, at vi hvert år indberetter beløb + giverens cpr-nummer for at godkende fradraget. Vi må ikke gemme dine cpr-oplysninger. Derfor skal du selv huske at oplyse det ved HVER indbetaling. Vi beklager bøvlet &#8211; men sådan er loven.</p>
 </div>
 
