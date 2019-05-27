@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="default.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button onclick="exportTableToExcel('tblData')">Export Table Data To Excel File</button>
+
+
+<table hidden id="tblData">
+    <thead>
+    <tr>
+        <th>Fornavn</th>
+        <th>Efternavn</th>
+        <th>Vej</th>
+        <th>by</th>
+        <th>Postnummer</th>
+        <th>Email</th>
+        <th>Besked</th>
+        <th>Privat tlf.</th>
+        <th>Mobiltlf.</th>
+        <th>Arbejdstlf.</th>
+        <th>Job</th>
+        <th>Fax</th>
+        <th>Sidst betalt</th>
+        <th>Medlemsstatus</th>
+        <th>Frivillig</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="medlem : ${medlemmer}">
+        <td th:text="${medlem.firstName}"></td>
+        <td th:text="${medlem.lastName}"></td>
+        <td th:text="${medlem.street}"></td>
+        <td th:text="${medlem.city}"></td>
+        <td th:text="${medlem.postalcode}"></td>
+        <td th:text="${medlem.email}"></td>
+        <td th:text="${medlem.description}"></td>
+        <td th:text="${medlem.privatephone}"></td>
+        <td th:text="${medlem.mobilephone}"></td>
+        <td th:text="${medlem.workphone}"></td>
+        <td th:text="${medlem.job}"></td>
+        <td th:text="${medlem.fax}"></td>
+        <td th:text="${medlem.lastpayed}"></td>
+        <td th:text="${medlem.memberstatus}"></td>
+        <td th:text="${medlem.volunteerstatus}"></td>
+    </tbody>
+</table>
+</body>
+<script>
+    function exportTableToExcel(tableID, filename = ''){
+        var downloadLink;
+        var dataType = 'application/vnd.ms-excel';
+        var tableSelect = document.getElementById(tableID);
+        var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+        // Specify file name
+        filename = filename?filename+'.xls':'excel_data.xls';
+
+        // Create download link element
+        downloadLink = document.createElement("a");
+
+        document.body.appendChild(downloadLink);
+
+        if(navigator.msSaveOrOpenBlob){
+            var blob = new Blob(['\ufeff', tableHTML], {
+                type: dataType
+            });
+            navigator.msSaveOrOpenBlob( blob, filename);
+        }else{
+            // Create a link to the file
+            downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+            // Setting the file name
+            downloadLink.download = filename;
+
+            //triggering the function
+            downloadLink.click();
+        }
+    }
+
+</script>
+</html>

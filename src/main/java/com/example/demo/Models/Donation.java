@@ -5,6 +5,16 @@ public class Donation {
     private int amount;
     private String email;
     private String phoneNumber;
+    private String cpr;
+
+
+    public String getCpr() {
+        return cpr;
+    }
+
+    public void setCpr(String cpr) {
+        this.cpr = cpr;
+    }
 
     public int getDonationId() {
         return donationId;

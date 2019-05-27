@@ -40,6 +40,8 @@ HEADER
 		</div>
 	</div>
 -->
+<button onclick="exportTableToExcel('tblData')">Export Table Data To Excel File</button>
+
 	<div class="row"><!-- row -->
 			<div class="col"><!-- col -->
 			<table class="tdata table table-striped">
@@ -77,8 +79,87 @@ HEADER
                 </tr>
 				</tbody>
 			</table>
-		</div><!-- /col -->
+			</div><!-- /col -->
 	</div><!-- /row -->
+
+<table hidden id="tblData">
+	<thead>
+	<tr>
+		<th>Fornavn</th>
+		<th>Efternavn</th>
+		<th>Vej</th>
+		<th>by</th>
+		<th>Postnummer</th>
+		<th>Email</th>
+		<th>Besked</th>
+		<th>Privat tlf.</th>
+		<th>Mobiltlf.</th>
+		<th>Arbejdstlf.</th>
+		<th>Job</th>
+		<th>Fax</th>
+		<th>Sidst betalt</th>
+		<th>Medlemsstatus</th>
+		<th>Frivillig</th>
+
+	</tr>
+	</thead>
+	<tbody>
+	<tr th:each="medlem : ${medlemmer}">
+		<td th:text="${medlem.firstName}"></td>
+		<td th:text="${medlem.lastName}"></td>
+		<td th:text="${medlem.street}"></td>
+		<td th:text="${medlem.city}"></td>
+		<td th:text="${medlem.postalcode}"></td>
+		<td th:text="${medlem.email}"></td>
+		<td th:text="${medlem.description}"></td>
+		<td th:text="${medlem.privatephone}"></td>
+		<td th:text="${medlem.mobilephone}"></td>
+		<td th:text="${medlem.workphone}"></td>
+		<td th:text="${medlem.job}"></td>
+		<td th:text="${medlem.fax}"></td>
+		<td th:text="${medlem.lastpayed}"></td>
+		<td th:text="${medlem.memberstatus}"></td>
+		<td th:text="${medlem.volunteerstatus}"></td>
+	</tbody>
+</table>
+
+<script> <!-- EXPORT SCRIPT -->
+    function exportTableToExcel(tableID, filename = ''){
+        var downloadLink;
+        var dataType = 'application/vnd.ms-excel';
+        var tableSelect = document.getElementById(tableID);
+        var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+        // Specify file name
+        filename = filename?filename+'.xls':'excel_data.xls';
+
+        // Create download link element
+        downloadLink = document.createElement("a");
+
+        document.body.appendChild(downloadLink);
+
+        if(navigator.msSaveOrOpenBlob){
+            var blob = new Blob(['\ufeff', tableHTML], {
+                type: dataType
+            });
+            navigator.msSaveOrOpenBlob( blob, filename);
+        }else{
+            // Create a link to the file
+            downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+            // Setting the file name
+            downloadLink.download = filename;
+
+            //triggering the function
+            downloadLink.click();
+        }
+    }
+
+</script><!-- EXPORT SCRIPT -->
+
+
+
+
 
 	<script type="text/javascript">
     $(document).ready(function() {
@@ -105,6 +186,7 @@ HEADER
         });
     });
 	</script>
+
 </div>
 <script>(function(h){"function"===typeof define&&define.amd?define(["jquery"],function(E){return h(E,window,document)}):"object"===typeof exports?module.exports=function(E,H){E||(E=window);H||(H="undefined"!==typeof window?require("jquery"):require("jquery")(E));return h(H,E,E.document)}:h(jQuery,window,document)})(function(h,E,H,k){function Z(a){var b,c,d={};h.each(a,function(e){if((b=e.match(/^([^A-Z]+?)([A-Z])/))&&-1!=="a aa ai ao as b fn i m o s ".indexOf(b[1]+" "))c=e.replace(b[0],b[2].toLowerCase()),
     d[c]=e,"o"===b[1]&&Z(a[e])});a._hungarianMap=d}function J(a,b,c){a._hungarianMap||Z(a);var d;h.each(b,function(e){d=a._hungarianMap[e];if(d!==k&&(c||b[d]===k))"o"===d.charAt(0)?(b[d]||(b[d]={}),h.extend(!0,b[d],b[e]),J(a[d],b[d],c)):b[d]=b[e]})}function Ca(a){var b=n.defaults.oLanguage,c=b.sDecimal;c&&Da(c);if(a){var d=a.sZeroRecords;!a.sEmptyTable&&(d&&"No data available in table"===b.sEmptyTable)&&F(a,a,"sZeroRecords","sEmptyTable");!a.sLoadingRecords&&(d&&"Loading..."===b.sLoadingRecords)&&F(a,
@@ -281,5 +363,6 @@ HEADER
 
 
 </script>
+
 </body>
 </html>
