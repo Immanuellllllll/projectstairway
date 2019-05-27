@@ -26,7 +26,8 @@ public class AdminRepo {
         String username = admin.getUserName();
         String password = admin.getPassword();
         System.out.println(username+"     "+password);
-        msc.create();
+        MySQLConnection mySQLConnection = new MySQLConnection();
+        mySQLConnection.create();
         String q =
                 "SELECT * from admin WHERE username = '" +username+ "' AND password= '"+password+"'";
         try {
@@ -36,9 +37,7 @@ public class AdminRepo {
        } catch (Exception e){
             System.out.println(e);
         }
-        finally {
-            con.close();
-        }
+        mySQLConnection.connClose();
         return null;
     }
     private ResultSet Query (String query) throws SQLException {

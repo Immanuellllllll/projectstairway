@@ -1,8 +1,12 @@
 package com.example.demo.Repository;
 
 import com.example.demo.Config.MySQLConnection;
+import com.opencsv.CSVWriter;
 import org.springframework.stereotype.Repository;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.*;
 
 @Repository
@@ -19,7 +23,8 @@ public class MemberRepo {
     }
 
     public void registerMember(String firstName,String lastName,String street,String postalcode, String city, String email, String description) throws SQLException {
-        msc.create();
+        MySQLConnection mySQLConnection = new MySQLConnection();
+        mySQLConnection.create();
         String q = "INSERT INTO members (firstname, surname, street, postalcode, city, email, description)"+" VALUES (?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement preparedStmt = con.prepareStatement(q);
         preparedStmt.setString (1, firstName);
@@ -31,10 +36,12 @@ public class MemberRepo {
         preparedStmt.setString (7, description);
         preparedStmt.execute();
         preparedStmt.close();
+        mySQLConnection.connClose();
 
     }
     public void editMember(int memberid, String firstName,String lastName,String street,String postalcode, String city, String privatephone, String mobilephone,String workphone,String job, String fax, String email,String description, String Sidst_betalt_kontingent, String medlemsstatus,String volontørstatus) throws SQLException {
-        msc.create();
+        MySQLConnection mySQLConnection = new MySQLConnection();
+        mySQLConnection.create();
         String q = "UPDATE members SET firstname=?, surname=?, street=?, postalcode=?, city=?, privatephone=?, mobilephone=?, workphone=?, job=?, fax=?, email=?, description=?, sidst_betalt_kontingent=?, medlemsstatus=?, volontørstatus=?"+" where memberid=?";
         PreparedStatement preparedStmt = con.prepareStatement(q);
         preparedStmt.setString (1, firstName);
@@ -55,22 +62,26 @@ public class MemberRepo {
         preparedStmt.setInt(16, memberid);
         preparedStmt.execute();
         preparedStmt.close();
+        mySQLConnection.connClose();
     }
 
 
     public void deleteMember(int memberId) throws SQLException {
-        msc.create();
+        MySQLConnection mySQLConnection = new MySQLConnection();
+        mySQLConnection.create();
         String q= "DELETE FROM members"+" WHERE memberId="+"(?)";
         PreparedStatement preparedStatement = con.prepareStatement(q);
         preparedStatement.setInt(1,memberId);
         preparedStatement.execute();
         preparedStatement.close();
+        mySQLConnection.connClose();
         }
 
     //Metoden prøver at sende en SQL sætning til databasen og lykkedes det sender den et resultset af alle patienter tilbage.
 
     public ResultSet viewAllMembers() throws Exception {
-            msc.create();
+        MySQLConnection mySQLConnection = new MySQLConnection();
+        mySQLConnection.create();
             String sql = "SELECT * FROM members";
             try {
                 ResultSet rs = Query(sql);
@@ -79,10 +90,13 @@ public class MemberRepo {
             }catch (Exception e){
                 System.out.println(e);
             }
+            mySQLConnection.connClose();
             return null;
     }
 
     public ResultSet viewMember(int memberId) throws Exception {
+        MySQLConnection mySQLConnection = new MySQLConnection();
+        mySQLConnection.create();
         String sql = "SELECT * FROM members WHERE memberid=" + memberId;
         try {
             ResultSet rs = Query(sql);
@@ -90,6 +104,7 @@ public class MemberRepo {
         }catch (Exception e){
             System.out.println(e);
         }
+        mySQLConnection.connClose();
         return null;
     }
 
@@ -101,12 +116,16 @@ public class MemberRepo {
     }
 
     public void setDate(int memberid, String sbk) throws SQLException {
+        MySQLConnection mySQLConnection = new MySQLConnection();
+        mySQLConnection.create();
         String q = "update members set sidst_betalt_kontingent=? where memberid=?";
         PreparedStatement preparedStatement = con.prepareStatement(q);
         preparedStatement.setString(1,sbk);
         preparedStatement.setInt(2,memberid);
         preparedStatement.execute();
         preparedStatement.close();
+        mySQLConnection.connClose();
     }
 }
+
 
