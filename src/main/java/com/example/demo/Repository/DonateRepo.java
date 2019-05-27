@@ -4,9 +4,7 @@ import com.example.demo.Config.MySQLConnection;
 import com.example.demo.Models.Donation;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 @Repository
 public class DonateRepo {
@@ -21,15 +19,37 @@ public class DonateRepo {
 
     }
 
-    public void donate(Donation donation) throws SQLException {
-        MySQLConnection mySQLConnection = new MySQLConnection();
-        mySQLConnection.create();
-        String q = "INSERT INTO members (amount, email, phonenumber)"+" VALUES (?, ?, ?)";
+    public void donate(Donation donation, int cprid) throws SQLException {
+        MySQLConnection msc=new MySQLConnection();
+        msc.create();
+        String q = "INSERT INTO donation (amount, cprid, phonenumber)"+" VALUES (?, ?, ?)";
         PreparedStatement preparedStmt = con.prepareStatement(q);
         preparedStmt.setInt (1, donation.getAmount());
-        preparedStmt.setString (2, donation.getEmail());
+        preparedStmt.setInt (2, cprid);
         preparedStmt.setString (3, donation.getPhoneNumber());
+        preparedStmt.execute();
         preparedStmt.close();
-        mySQLConnection.connClose();
+        msc.connClose();
     }
+    public ResultSet enterCPR (String cpr) throws SQLException {
+        MySQLConnection msc = new MySQLConnection();
+        msc.create();
+        String q = "insert into cpr (cpr) values (?)";
+        try {
+            PreparedStatement preparedStatement = con.prepareStatement(q);
+            preparedStatement.setString(1, cpr);
+            preparedStatement.execute();
+            preparedStatement.close();
+        } catch(Exception e){}
+        q = "SELECT cprid FROM cpr WHERE cpr ="+cpr;
+        ResultSet rs = Query(q);
+        return rs;
+
+    }
+    private ResultSet Query (String query) throws SQLException
+    {
+        Statement stmt = con.createStatement();
+        return (stmt.executeQuery(query));
+    }
+
 }

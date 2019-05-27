@@ -1,5 +1,6 @@
 package com.example.demo.Controller;
 
+import com.example.demo.Models.Donation;
 import com.example.demo.Models.Member;
 import com.example.demo.Service.MemberService;
 import com.example.demo.Service.MemberServiceI;
@@ -29,6 +30,8 @@ public class MemberController {
     @GetMapping("/a")
     public String registerForm(Model model) {
         model.addAttribute("member", new Member());
+        model.addAttribute("donation", new Donation());
+
         return "Støt Stairways arbejde - Stairway - for gadebørn og alle børns rettigheder - Generalforsamling 2016";
     }
 

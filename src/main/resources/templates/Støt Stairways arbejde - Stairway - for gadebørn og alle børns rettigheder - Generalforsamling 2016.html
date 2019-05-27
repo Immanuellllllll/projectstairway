@@ -453,7 +453,7 @@ var revapi2,
 <h2>Giv en donation</h2>
 		<div role="form" class="" id="wpcf7-f842-p275-o1" lang="da-DK" dir="ltr">
 			<div class="screen-reader-response"></div>
-			<form action="/registerMember" method="post" class="wpcf7-form" novalidate="novalidate" th:object="${donation}">
+			<form action="/donate" method="post" class="wpcf7-form" novalidate="novalidate" th:object="${donation}">
 				<div style="display: none;">
 					<input type="hidden" name="_wpcf7" value="842" />
 					<input type="hidden" name="_wpcf7_version" value="5.0.5" />
@@ -464,12 +464,12 @@ var revapi2,
 
 
 				<p>Skrive beløb (i hele kroner)<br />
-					<span class="wpcf7-form-control-wrap amount"><input type="text" name="amount" value="" th:field="*{amount}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+					<span ><input type="text" name="amount" value="" th:field="*{amount}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
 				<p>CPR-nummer<br />
-					<span class="wpcf7-form-control-wrap text-cpr"><input type="text" name="text-cpr" value=""  th:field="*{cpr}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+					<span><input type="text" name="text-cpr" value=""  th:field="*{cpr}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
 				<p>Telefonnummer<br />
-					<span class="wpcf7-form-control-wrap text-phone"><input type="text" name="text-phone" value="" th:field="*{phone}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
-		<a href="doner.html" target="_self" role="button" class="button" style="color:#fff;background-color:#d83b27"><span class="mk-button--text">GÅ TIL BETALING</span></a>
+					<span><input type="text" name="text-phone" value="" th:field="*{phoneNumber}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+				<p><input type="submit" value="Gå til betaling" class="wpcf7-form-control wpcf7-submit" /></p>
 		<br>
 		<br>
 

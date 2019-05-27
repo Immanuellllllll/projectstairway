@@ -5,6 +5,7 @@ import com.example.demo.Repository.DonateRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Service
@@ -14,7 +15,11 @@ public class DonationService implements DonationServiceI {
 
     @Override
     public void donate(Donation donation) throws SQLException {
-        dr.donate(donation);
+        ResultSet rs=dr.enterCPR(donation.getCpr());
+        rs.next();
+        int cprid=rs.getInt("cprid");
+        dr.donate(donation,cprid);
+
 
     }
 

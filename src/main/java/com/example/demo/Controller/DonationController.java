@@ -1,7 +1,22 @@
 package com.example.demo.Controller;
 
-public class DonationController {
-    public void donate(){
+import com.example.demo.Models.Donation;
+import com.example.demo.Service.DonationService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import java.sql.SQLException;
+
+@Controller
+public class DonationController {
+    @Autowired
+    DonationService ds;
+
+    @PostMapping("/donate")
+    public String donate(@ModelAttribute Donation donation) throws SQLException {
+        ds.donate(donation);
+        return "Tak";
     }
 }
