@@ -3,10 +3,18 @@ package com.example.demo.Models;
 public class Donation {
     private int donationId;
     private int amount;
-    private String email;
     private String phoneNumber;
     private String cpr;
 
+    public Donation() {
+    }
+
+    public Donation(int donationId, int amount, String phoneNumber, String cpr) {
+        this.donationId = donationId;
+        this.amount = amount;
+        this.phoneNumber = phoneNumber;
+        this.cpr = cpr;
+    }
 
     public String getCpr() {
         return cpr;
@@ -30,14 +38,6 @@ public class Donation {
 
     public void setAmount(int amount) {
         this.amount = amount;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getPhoneNumber() {

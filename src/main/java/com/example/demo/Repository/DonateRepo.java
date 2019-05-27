@@ -52,4 +52,9 @@ public class DonateRepo {
         return (stmt.executeQuery(query));
     }
 
+    public ResultSet showAllDonations() throws SQLException {
+        String q="Select * from donation right join cpr on donation.cprid=cpr.cprid";
+        ResultSet rs =Query(q);
+        return rs;
+    }
 }

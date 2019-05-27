@@ -39,7 +39,7 @@ public class MemberController {
     public String EditMember(@ModelAttribute Member member, HttpServletRequest request) throws SQLException {
         ms.editMember(member);
         String referer = request.getHeader("Referer");
-        return "redirect:/"+referer;
+        return "redirect:"+referer;
     }
 
     @GetMapping("/editMember/{memberid}")

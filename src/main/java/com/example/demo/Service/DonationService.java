@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class DonationService implements DonationServiceI {
@@ -21,6 +23,18 @@ public class DonationService implements DonationServiceI {
         dr.donate(donation,cprid);
 
 
+    }
+
+    @Override
+    public List<Donation> showAllDonations() throws SQLException {
+        ResultSet rs=dr.showAllDonations();
+        List<Donation> dList=new ArrayList<>();
+        while (rs.next())
+        {
+        dList.add(new Donation(rs.getInt("donationid"),rs.getInt("amount"),rs.getString("phonenumber"),rs.getString("cpr")));
+        }
+
+        return dList;
     }
 
 }
