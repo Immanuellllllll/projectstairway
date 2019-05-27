@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpSession;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
@@ -24,10 +25,10 @@ public class AdminController {
     }
 
     @PostMapping("/Login")
-    public String confirmLogin (@ModelAttribute Admin admin) throws SQLException, NoSuchAlgorithmException {
+    public String confirmLogin (@ModelAttribute Admin admin, HttpSession session) throws SQLException, NoSuchAlgorithmException {
         try {
             As.confirmLogin(admin);
-            System.out.println(admin.getUserName());
+session.setAttribute("admin", true);
         }
        catch(Exception e) {
            System.out.println(e);
