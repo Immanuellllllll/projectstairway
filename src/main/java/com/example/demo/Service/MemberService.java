@@ -83,6 +83,9 @@ public class MemberService implements MemberServiceI{
     @Override
     public void setDate(int memberid) throws SQLException {
         LocalDate d = LocalDate.now();
+        System.out.println(d.getYear());
+        Integer.valueOf(d.toString().substring(0,4));
         mr.setDate(memberid,d.toString());
+
     }
 }

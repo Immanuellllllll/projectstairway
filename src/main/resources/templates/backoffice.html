@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
- <!--<div th:if="${session.admin ==true}"> -->
 <head>
 	<meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8">
 	<link rel="stylesheet" href="default.css"/>
@@ -23,39 +22,22 @@ header {
 	border-bottom: 5px solid red;
 
 }
-	#buttons{
-		height: 20px;
-		width: 300px;
-
-	}
-	#export{
-		height: 30px;
-		width: 100px;
-
-	}
-	#icon{
-
-	}
 </style>
 </head>
 <body>
 <header>
-	<div id="icon">
-	<img id="sdLogo" src="http://www.stairway.dk/wp-content/uploads/2016/06/SDK-logo-300-b.jpg"/>
-	</div>
-	<div id="buttons">
-    <a class="btn btn-danger btn-sm" href="showAllMembers">Medlemmer</a>
-    <a class="btn btn-danger btn-sm" href="showAllDonations">Donationer</a>
-    <a class="btn btn-danger btn-sm" href="">Betalt i aar</a>
-	</div>
-	<div id="export">
-		<input type="button" onclick="tableToExcel('tblExport', 'W3C Example Table')" value="Export to Excel">
-	</div>
-	<div id="log out">
-		<button class
-	</div>
+
+    <img id="sdLogo" src="http://www.stairway.dk/wp-content/uploads/2016/06/SDK-logo-300-b.jpg"/>
+    <div id="buttons">
+        <a class="btn btn-danger btn-sm" href="showAllMembers">Medlemmer</a>
+        <a class="btn btn-danger btn-sm" href="showAllDonations">Donationer</a>
+        <a class="btn btn-danger btn-sm" href="">Betalt i aar</a>
+    </div>
+    <a class="btn btn-danger btn-sm" href="/">log ud</a>
 </header>
 
+<input type="button" onclick="tableToExcel('tblExport', 'W3C Example Table')" value="Download alle som Excel ark">
+<input type="button" onclick="tableToExcel('tblExportpayed', 'W3C Example Table')" value="Download alle betalte som Excel ark">
 	<div class="row"><!-- row -->
 			<div class="col"><!-- col -->
 				<table id="dtBasicExample" class="tdata table table-striped">
@@ -79,8 +61,9 @@ header {
                     <td th:text="${medlem.lastpayed}"></td>
 					<td>
 					<form th:action="@{/setDate/{id}(id=${medlem.memberId})}" method="post">
-						<button class="btn btn-danger btn-sm" type="submit">last payed</button>
-					</form>
+						<button th:if="${medlem.payedthisyear}" class="btn btn-success btn-sm" type="submit">setDate</button>
+                        <button th:if="${!medlem.payedthisyear}" class="btn btn-danger btn-sm" type="submit">setDate</button>
+                    </form>
 					</td>
 
 					<td>
@@ -137,6 +120,46 @@ header {
 	</tbody>
 </table>
 
+<table hidden id="tblExportpayed">
+    <thead>
+    <tr>
+        <th>Fornavn</th>
+        <th>Efternavn</th>
+        <th>Vej</th>
+        <th>by</th>
+        <th>Postnummer</th>
+        <th>Email</th>
+        <th>Besked</th>
+        <th>Privat tlf.</th>
+        <th>Mobiltlf.</th>
+        <th>Arbejdstlf.</th>
+        <th>Job</th>
+        <th>Fax</th>
+        <th>Sidst betalt</th>
+        <th>Medlemsstatus</th>
+        <th>Frivillig</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="medlem : ${medlemmer}" th:if="${medlem.payedthisyear}" >
+        <td th:text="${medlem.firstName}"></td>
+        <td th:text="${medlem.lastName}"></td>
+        <td th:text="${medlem.street}"></td>
+        <td th:text="${medlem.city}"></td>
+        <td th:text="${medlem.postalcode}"></td>
+        <td th:text="${medlem.email}"></td>
+        <td th:text="${medlem.description}"></td>
+        <td th:text="${medlem.privatephone}"></td>
+        <td th:text="${medlem.mobilephone}"></td>
+        <td th:text="${medlem.workphone}"></td>
+        <td th:text="${medlem.job}"></td>
+        <td th:text="${medlem.fax}"></td>
+        <td th:text="${medlem.lastpayed}"></td>
+        <td th:text="${medlem.memberstatus}"></td>
+        <td th:text="${medlem.volunteerstatus}"></td>
+    </tbody>
+</table>
 
 <script type="text/javascript">
     var tableToExcel = (function() {
@@ -159,5 +182,4 @@ header {
 </script>
 
 </body>
-	</div>
 </html>

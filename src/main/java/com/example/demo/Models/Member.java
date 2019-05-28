@@ -1,5 +1,7 @@
 package com.example.demo.Models;
 
+import java.time.LocalDate;
+
 public class Member {
     private int memberId;
     private String firstName;
@@ -17,6 +19,7 @@ public class Member {
     private String lastpayed;
     private String memberstatus;
     private String volunteerstatus;
+    private boolean payedthisyear;
 
 
     public Member() {
@@ -48,8 +51,11 @@ public class Member {
         this.lastpayed = lastpayed;
         this.memberstatus = memberstatus;
         this.volunteerstatus = volunteerstatus;
+        LocalDate today = LocalDate.now();
+        try {
+            payedthisyear = today.getYear() == Integer.valueOf(lastpayed.substring(0, 4));
+        }catch (Exception e){}
     }
-
     public int getMemberId() {
         return memberId;
     }
@@ -168,5 +174,13 @@ public class Member {
 
     public void setVolunteerstatus(String volunteerstatus) {
         this.volunteerstatus = volunteerstatus;
+    }
+
+    public boolean isPayedthisyear() {
+        return payedthisyear;
+    }
+
+    public void setPayedthisyear(boolean payedthisyear) {
+        this.payedthisyear = payedthisyear;
     }
 }

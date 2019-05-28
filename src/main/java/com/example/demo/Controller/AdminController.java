@@ -28,7 +28,7 @@ public class AdminController {
     public String confirmLogin (@ModelAttribute Admin admin, HttpSession session) throws SQLException, NoSuchAlgorithmException {
         try {
             As.confirmLogin(admin);
-session.setAttribute("admin", true);
+            session.setAttribute("admin", true);
         }
        catch(Exception e) {
            System.out.println(e);
