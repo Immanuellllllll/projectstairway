@@ -9,4 +9,6 @@ public interface DonationServiceI {
     void donate(Donation donation) throws SQLException;
 
     List<Donation> showAllDonations() throws SQLException;
+
+    void wipeCPR() throws SQLException;
 }

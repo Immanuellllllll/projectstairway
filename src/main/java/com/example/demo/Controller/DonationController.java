@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 
 @Controller
@@ -27,4 +28,12 @@ public class DonationController {
         model.addAttribute("donation", new Donation());
         return "showAllDonations";
     }
+    @PostMapping("/wipeCPR")
+    public String wipeCPR(HttpServletRequest request) throws SQLException {
+        ds.wipeCPR();
+        String referer = request.getHeader("Referer");
+        return "redirect:"+referer;
+    }
+
+
 }

@@ -85,6 +85,7 @@ public class MemberRepo {
             String sql = "SELECT * FROM members";
             try {
                 ResultSet rs = Query(sql);
+                mySQLConnection.connClose();
                 return rs;
 
             }catch (Exception e){

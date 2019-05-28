@@ -32,6 +32,11 @@
 <input type="button" onclick="tableToExcel('tblExport', 'W3C Example Table')" value="Download alle som Excel">
 <input type="button" onclick="tableToExcel('tblExportover200', 'W3C Example Table')" value="Download donationer over 200 som Excel">
 
+<form action="/wipeCPR" method="post">
+    <button class="btn btn-danger btn-sm" type="submit" onClick="return confirm('ADVARSEL: Slet alle CPR numrene')">Wipe CPR</button>
+    </a>
+</form>
+
 <div class="row"><!-- row -->
     <div class="col"><!-- col -->
 <table id="dtBasicExample" class="tdata table table-striped">
@@ -50,6 +55,7 @@
     </tr>
     </tbody>
 </table>
+
 
 <table hidden id="tblExport">
     <thead>

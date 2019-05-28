@@ -4,6 +4,7 @@ import com.example.demo.Config.MySQLConnection;
 import com.example.demo.Models.Donation;
 import org.springframework.stereotype.Repository;
 
+import javax.swing.plaf.nimbus.State;
 import java.sql.*;
 
 @Repository
@@ -43,6 +44,7 @@ public class DonateRepo {
         } catch(Exception e){}
         q = "SELECT cprid FROM cpr WHERE cpr ="+cpr;
         ResultSet rs = Query(q);
+        msc.connClose();
         return rs;
 
     }
@@ -56,5 +58,16 @@ public class DonateRepo {
         String q="Select * from donation right join cpr on donation.cprid=cpr.cprid";
         ResultSet rs =Query(q);
         return rs;
+    }
+
+    public void wipeCPR() throws SQLException {
+        MySQLConnection msc=new MySQLConnection();
+        msc.create();
+        String q ="Delete from cpr";
+        Statement stmt =con.createStatement();
+        stmt.execute(q);
+        stmt.close();
+        msc.connClose();
+
     }
 }

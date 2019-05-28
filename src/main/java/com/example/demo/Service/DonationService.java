@@ -37,5 +37,10 @@ public class DonationService implements DonationServiceI {
         return dList;
     }
 
+    @Override
+    public void wipeCPR() throws SQLException {
+        dr.wipeCPR();
+    }
+
 }
 
