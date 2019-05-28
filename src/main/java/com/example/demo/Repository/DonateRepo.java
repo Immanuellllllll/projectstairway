@@ -16,8 +16,6 @@ public class DonateRepo {
     {
         this.msc=msc;
         this.con=msc.create();
-        //Lets load the driver
-
     }
 
     public void donate(Donation donation, int cprid) throws SQLException {
@@ -54,14 +52,16 @@ public class DonateRepo {
         return (stmt.executeQuery(query));
     }
 
-    public ResultSet showAllDonations() throws SQLException {
+    public ResultSet showAllDeductableDonations() throws SQLException {
+        MySQLConnection msc = new MySQLConnection();
+        msc.create();
         String q="Select * from donation right join cpr on donation.cprid=cpr.cprid";
-        ResultSet rs =Query(q);
+        ResultSet rs=Query(q);
+        msc.connClose();
         return rs;
     }
 
     public void wipeCPR() throws SQLException {
-        MySQLConnection msc=new MySQLConnection();
         msc.create();
         String q ="Delete from cpr";
         Statement stmt =con.createStatement();
@@ -69,5 +69,13 @@ public class DonateRepo {
         stmt.close();
         msc.connClose();
 
+    }
+
+    public ResultSet showAllDonations() throws SQLException {
+        msc.create();
+        String q="Select * from donation";
+        ResultSet rs=Query(q);
+        msc.connClose();
+        return rs;
     }
 }

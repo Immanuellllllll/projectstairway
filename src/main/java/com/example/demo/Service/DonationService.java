@@ -26,8 +26,8 @@ public class DonationService implements DonationServiceI {
     }
 
     @Override
-    public List<Donation> showAllDonations() throws SQLException {
-        ResultSet rs=dr.showAllDonations();
+    public List<Donation> showAllDeductableDonations() throws SQLException {
+        ResultSet rs=dr.showAllDeductableDonations();
         List<Donation> dList=new ArrayList<>();
         while (rs.next())
         {
@@ -42,5 +42,18 @@ public class DonationService implements DonationServiceI {
         dr.wipeCPR();
     }
 
+    @Override
+    public List<Donation> showAllDonations() throws SQLException {
+        ResultSet rs=dr.showAllDonations();
+        List<Donation> dList=new ArrayList<>();
+        while (rs.next())
+        {
+            dList.add(new Donation(rs.getInt("donationid"),rs.getInt("amount"),rs.getString("phonenumber"),null));
+        }
+
+        return dList;
+    }
 }
+
+
 

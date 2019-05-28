@@ -22,6 +22,12 @@ public class DonationController {
         ds.donate(donation);
         return "Tak";
     }
+    @GetMapping("/showAllDeductableDonations")
+    public String showAllDeductableDonations(Model model) throws SQLException {
+        model.addAttribute("donations", ds.showAllDeductableDonations());
+        model.addAttribute("donation", new Donation());
+        return "showAllDeductableDonations";
+    }
     @GetMapping("/showAllDonations")
     public String showAllDonations(Model model) throws SQLException {
         model.addAttribute("donations", ds.showAllDonations());

@@ -29,7 +29,6 @@
         <a class="btn btn-danger btn-sm" href="/">log ud</a>
 </header>
 
-<input type="button" onclick="tableToExcel('tblExport', 'W3C Example Table')" value="Download alle som Excel">
 <input type="button" onclick="tableToExcel('tblExportover200', 'W3C Example Table')" value="Download donationer over 200 som Excel">
 
 <form action="/wipeCPR" method="post">
@@ -42,14 +41,14 @@
 <table id="dtBasicExample" class="tdata table table-striped">
     <thead>
     <tr>
-        <th>CPR</th>
+        <th>Donor</th>
         <th>beløb</th>
         <th>tlf.</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="donation : ${donations}">
-        <td th:text="${donation.cpr}"></td>
+    <tr th:each="donation : ${donations}" th:if="${donation.amount>199}">
+        <td>Her skal der stå donor</td>
         <td th:text="${donation.amount}"></td>
         <td th:text="${donation.phoneNumber}"></td>
     </tr>
@@ -57,24 +56,6 @@
 </table>
 
 
-<table hidden id="tblExport">
-    <thead>
-    <tr>
-        <th>Donationsid</th>
-        <th>Beløb</th>
-        <th>Tlf.</th>
-        <th>CPr</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="donation : ${donations}">
-        <td th:text="${donation.donationId}"></td>
-        <td th:text="${donation.amount}"></td>
-        <td th:text="${donation.phoneNumber}"></td>
-        <td th:text="${donation.cpr}"></td>
-    </tr>
-    </tbody>
-</table>
         <table hidden id="tblExportover200">
             <thead>
             <tr>
@@ -83,7 +64,7 @@
                 <th>Tlf.</th>
                 <th>CPr</th>
             </tr>
-            </thead>=
+            </thead>
             <tbody>
             <tr th:each="donation : ${donations}" th:if="${donation.amount>199}">
                 <td th:text="${donation.donationId}"></td>
