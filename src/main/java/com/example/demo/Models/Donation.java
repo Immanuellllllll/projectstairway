@@ -5,15 +5,25 @@ public class Donation {
     private int amount;
     private String phoneNumber;
     private String cpr;
+    private String name;
 
     public Donation() {
     }
 
-    public Donation(int donationId, int amount, String phoneNumber, String cpr) {
+    public Donation(int donationId, int amount, String phoneNumber, String cpr,String name) {
         this.donationId = donationId;
         this.amount = amount;
         this.phoneNumber = phoneNumber;
         this.cpr = cpr;
+        this.name=name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getCpr() {

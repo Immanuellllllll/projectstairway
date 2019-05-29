@@ -20,8 +20,8 @@ public class DonationService implements DonationServiceI {
         ResultSet rs=dr.enterCPR(donation.getCpr());
         rs.next();
         int cprid=rs.getInt("cprid");
+        dr.close();
         dr.donate(donation,cprid);
-
 
     }
 
@@ -31,9 +31,9 @@ public class DonationService implements DonationServiceI {
         List<Donation> dList=new ArrayList<>();
         while (rs.next())
         {
-        dList.add(new Donation(rs.getInt("donationid"),rs.getInt("amount"),rs.getString("phonenumber"),rs.getString("cpr")));
+        dList.add(new Donation(rs.getInt("donationid"),rs.getInt("amount"),rs.getString("phonenumber"),rs.getString("cpr"),rs.getString("name")));
         }
-
+        dr.close();
         return dList;
     }
 
@@ -48,9 +48,9 @@ public class DonationService implements DonationServiceI {
         List<Donation> dList=new ArrayList<>();
         while (rs.next())
         {
-            dList.add(new Donation(rs.getInt("donationid"),rs.getInt("amount"),rs.getString("phonenumber"),null));
+            dList.add(new Donation(rs.getInt("donationid"),rs.getInt("amount"),rs.getString("phonenumber"),null,rs.getString("name")));
         }
-
+        dr.close();
         return dList;
     }
 }

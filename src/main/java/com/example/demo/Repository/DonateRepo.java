@@ -9,18 +9,16 @@ import java.sql.*;
 
 @Repository
 public class DonateRepo {
-    Connection con;
     MySQLConnection msc;
+    Connection con;
 
     public DonateRepo(MySQLConnection msc) throws Exception
     {
         this.msc=msc;
-        this.con=msc.create();
     }
 
     public void donate(Donation donation, int cprid) throws SQLException {
-        MySQLConnection msc=new MySQLConnection();
-        msc.create();
+        con=msc.create();
         String q = "INSERT INTO donation (amount, cprid, phonenumber)"+" VALUES (?, ?, ?)";
         PreparedStatement preparedStmt = con.prepareStatement(q);
         preparedStmt.setInt (1, donation.getAmount());
@@ -28,11 +26,11 @@ public class DonateRepo {
         preparedStmt.setString (3, donation.getPhoneNumber());
         preparedStmt.execute();
         preparedStmt.close();
-        msc.connClose();
+        con.close();
+
     }
     public ResultSet enterCPR (String cpr) throws SQLException {
-        MySQLConnection msc = new MySQLConnection();
-        msc.create();
+        con=msc.create();
         String q = "insert into cpr (cpr) values (?)";
         try {
             PreparedStatement preparedStatement = con.prepareStatement(q);
@@ -42,40 +40,41 @@ public class DonateRepo {
         } catch(Exception e){}
         q = "SELECT cprid FROM cpr WHERE cpr ="+cpr;
         ResultSet rs = Query(q);
-        msc.connClose();
         return rs;
 
     }
     private ResultSet Query (String query) throws SQLException
     {
-        Statement stmt = con.createStatement();
-        return (stmt.executeQuery(query));
+      //  Statement stmt = con.createStatement();
+       // return (stmt.executeQuery(query));
+        return null;
     }
 
     public ResultSet showAllDeductableDonations() throws SQLException {
-        MySQLConnection msc = new MySQLConnection();
-        msc.create();
+        con=msc.create();
         String q="Select * from donation right join cpr on donation.cprid=cpr.cprid";
-        ResultSet rs=Query(q);
-        msc.connClose();
+        Statement stmt = con.createStatement();
+        ResultSet rs=stmt.executeQuery(q);
         return rs;
     }
 
     public void wipeCPR() throws SQLException {
-        msc.create();
+        con=msc.create();
         String q ="Delete from cpr";
         Statement stmt =con.createStatement();
         stmt.execute(q);
         stmt.close();
-        msc.connClose();
-
+        con.close();
     }
 
     public ResultSet showAllDonations() throws SQLException {
-        msc.create();
+        con=msc.create();
         String q="Select * from donation";
-        ResultSet rs=Query(q);
-        msc.connClose();
+        Statement stmt = con.createStatement();
+        ResultSet rs=stmt.executeQuery(q);
         return rs;
+    }
+    public void close() throws SQLException {
+        con.close();
     }
 }
