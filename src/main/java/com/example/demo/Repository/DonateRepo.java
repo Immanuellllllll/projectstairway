@@ -20,11 +20,13 @@ public class DonateRepo implements DonateRepoI {
     @Override
     public void donate(Donation donation, int cprid) throws SQLException {
         con=msc.create();
-        String q = "INSERT INTO donation (amount, cprid, phonenumber)"+" VALUES (?, ?, ?)";
+        String q = "INSERT INTO donation (amount, cprid, phonenumber,name)"+" VALUES (?, ?, ?, ?)";
         PreparedStatement preparedStmt = con.prepareStatement(q);
         preparedStmt.setInt (1, donation.getAmount());
         preparedStmt.setInt (2, cprid);
         preparedStmt.setString (3, donation.getPhoneNumber());
+        preparedStmt.setString (4, donation.getName());
+
         preparedStmt.execute();
         preparedStmt.close();
         con.close();
