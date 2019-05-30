@@ -25,9 +25,9 @@
     <div id="buttons">
         <a class="btn btn-danger btn-sm" href="showAllMembers">Medlemmer</a>
         <a class="btn btn-danger btn-sm" href="showAllDonations">Donationer</a>
-        <a class="btn btn-danger btn-sm" href="showAllDeductableDonations">Donationer til fradrag</a>
-    </div>
+        <a class="btn btn-danger btn-lg" href="showAllDeductableDonations">Donationer til fradrag</a>
         <a class="btn btn-danger btn-sm" href="/">log ud</a>
+    </div>
 </header>
 
 <input type="button" onclick="tableToExcel('tblExportover200', 'W3C Example Table')" value="Download donationer over 200 som Excel">
@@ -42,14 +42,14 @@
 <table id="dtBasicExample" class="tdata table table-striped">
     <thead>
     <tr>
-        <th>Donor</th>
+        <th>cpr</th>
         <th>beløb</th>
         <th>tlf.</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="donation : ${donations}" th:if="${donation.amount>199}">
-        <td th:text="${donation.name}"></td>
+        <td th:text="${donation.cpr}"></td>
         <td th:text="${donation.amount}"></td>
         <td th:text="${donation.phoneNumber}"></td>
     </tr>

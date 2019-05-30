@@ -2,6 +2,7 @@ package com.example.demo.Service;
 
 import com.example.demo.Models.Member;
 import com.example.demo.Repository.MemberRepo;
+import com.example.demo.Repository.MemberRepoI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ import java.util.List;
 @Service
 public class MemberService implements MemberServiceI{
     @Autowired
-    MemberRepo mr;
+    MemberRepoI mr;
 
     public void registerMember(Member member) throws SQLException {
         mr.registerMember(member.getFirstName(), member.getLastName(), member.getStreet(), member.getPostalcode(), member.getCity(), member.getEmail(),member.getDescription());
@@ -54,6 +55,7 @@ public class MemberService implements MemberServiceI{
             , fax, lastpayed, memberStatus,volunteersstatus);
             memberList.add(member);
         }
+        mr.close();
         return memberList;
     }
     public Member viewMember(int memberId) throws Exception {
@@ -77,6 +79,7 @@ public class MemberService implements MemberServiceI{
         String volunteersstatus = rs.getString("volontørstatus");
         Member member = new Member(memberId, firstName, lastName, street, postalcode, city, email,description, privatephone, mobilephone, workphone, job
                 , fax, lastpayed, memberStatus,volunteersstatus);
+        mr.close();
         return member;
     }
 

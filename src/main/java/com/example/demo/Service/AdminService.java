@@ -2,6 +2,7 @@ package com.example.demo.Service;
 
 import com.example.demo.Models.Admin;
 import com.example.demo.Repository.AdminRepo;
+import com.example.demo.Repository.AdminRepoI;
 import com.mysql.cj.protocol.Resultset;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ import java.sql.SQLException;
 @Service
 public class AdminService implements AdminServiceI {
     @Autowired
-    AdminRepo admRepo;
+    AdminRepoI admRepo;
 
 
     // En metode kaldet "hashpassword" der har en String af typen password som parameter.
@@ -47,6 +48,7 @@ public class AdminService implements AdminServiceI {
         rs.next();
         String checkLoginuser = rs.getString("username");
         String checkLoginpass = rs.getString("password");
+        admRepo.close();
 
 
     }

@@ -22,6 +22,9 @@ header {
 	border-bottom: 5px solid red;
 
 }
+	#buttons{
+		float: bottom;
+	}
 </style>
 </head>
 <body>
@@ -29,15 +32,17 @@ header {
 
     <img id="sdLogo" src="http://www.stairway.dk/wp-content/uploads/2016/06/SDK-logo-300-b.jpg"/>
     <div id="buttons">
-        <a class="btn btn-danger btn-sm" href="showAllMembers">Medlemmer</a>
+        <a class="btn btn-danger btn-lg" href="showAllMembers">Medlemmer</a>
         <a class="btn btn-danger btn-sm" href="showAllDonations">Alle Donationer</a>
 		<a class="btn btn-danger btn-sm" href="showAllDeductableDonations">Donationer til fradrag</a>
+		<a class="btn btn-danger btn-sm" href="/">log ud</a>
 	</div>
-    <a class="btn btn-danger btn-sm" href="/">log ud</a>
 </header>
-<input type="button" onclick="tableToExcel('tblExport', 'W3C Example Table')" value="Download alle som Excel ark">
-<input type="button" onclick="tableToExcel('tblExportpayed', 'W3C Example Table')" value="Download alle betalte som Excel ark">
-	<div class="row"><!-- row -->
+<input class="btn btn-info" onclick="tableToExcel('tblExport', 'W3C Example Table')" value="Download alle som Excel ark">
+<input class="btn btn-info" onclick="tableToExcel('tblExportpayed', 'W3C Example Table')" value="Download alle betalte som Excel ark">
+<a class="btn btn-info" href="/createMember">Opret medlem</a>
+
+<div class="row"><!-- row -->
 			<div class="col"><!-- col -->
 				<table id="dtBasicExample" class="tdata table table-striped">
 				<thead>
@@ -47,7 +52,7 @@ header {
                         <th>Privat tlf.</th>
 						<th>Email</th>
 						<th>Sidst betalt</th>
-						<th>Knap</th>
+						<th>Betalt kontigent</th>
 						<th></th>
                     </tr>
 				</thead>
@@ -60,8 +65,8 @@ header {
                     <td th:text="${medlem.lastpayed}"></td>
 					<td>
 					<form th:action="@{/setDate/{id}(id=${medlem.memberId})}" method="post">
-						<button th:if="${medlem.payedthisyear}" class="btn btn-success btn-sm" type="submit">setDate</button>
-                        <button th:if="${!medlem.payedthisyear}" class="btn btn-danger btn-sm" type="submit">setDate</button>
+						<button th:if="${medlem.payedthisyear}" class="btn btn-success btn-sm" type="submit">Betalt</button>
+                        <button th:if="${!medlem.payedthisyear}" class="btn btn-danger btn-sm" type="submit">Ikke betalt</button>
                     </form>
 					</td>
 

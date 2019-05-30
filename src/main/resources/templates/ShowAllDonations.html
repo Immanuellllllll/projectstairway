@@ -24,14 +24,15 @@
     <img id="sdLogo" src="http://www.stairway.dk/wp-content/uploads/2016/06/SDK-logo-300-b.jpg"/>
     <div id="buttons">
         <a class="btn btn-danger btn-sm" href="showAllMembers">Medlemmer</a>
-        <a class="btn btn-danger btn-sm" href="showAllDonations">Donationer</a>
+        <a class="btn btn-danger btn-lg" href="showAllDonations">Donationer</a>
         <a class="btn btn-danger btn-sm" href="showAllDeductableDonations">Donationer til fradrag</a>
+        <a class="btn btn-danger btn-sm" href="/">log ud</a>
     </div>
-    <a class="btn btn-danger btn-sm" href="/">log ud</a>
 </header>
 
 <input type="button" onclick="tableToExcel('tblExport', 'W3C Example Table')" value="Download alle som Excel">
-
+<br>
+<br>
 <form action="/wipeCPR" method="post">
     <button class="btn btn-danger btn-sm" type="submit" onClick="return confirm('ADVARSEL: Slet alle CPR numrene')">Wipe CPR</button>
     </a>
