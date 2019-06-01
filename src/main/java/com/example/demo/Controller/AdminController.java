@@ -18,7 +18,7 @@ public class AdminController {
     @Autowired
     AdminServiceI As;
 
-    @GetMapping("/")
+    @GetMapping("/admin")
     public String Login (Model model, HttpSession session){
         session.setAttribute("admin", false);
         model.addAttribute("admin", new Admin());
