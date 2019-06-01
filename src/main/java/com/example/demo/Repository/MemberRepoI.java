@@ -1,12 +1,14 @@
 package com.example.demo.Repository;
 
+import com.example.demo.Models.Member;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public interface MemberRepoI {
-    void registerMember(String firstName, String lastName, String street, String postalcode, String city, String email, String description) throws SQLException;
+    void registerMember(Member member) throws SQLException;
 
-    void editMember(int memberid, String firstName, String lastName, String street, String postalcode, String city, String privatephone, String mobilephone, String workphone, String job, String fax, String email, String description, String Sidst_betalt_kontingent, String medlemsstatus, String volontørstatus) throws SQLException;
+    void editMember(Member member) throws SQLException;
 
     void deleteMember(int memberId) throws SQLException;
 

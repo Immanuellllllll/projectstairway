@@ -26,7 +26,6 @@ public class AdminRepo implements AdminRepoI {
 
         String username = admin.getUserName();
         String password = admin.getPassword();
-        System.out.println(username+"     "+password);
         con=msc.create();
         String q =
                 "SELECT * from admin WHERE username = '" +username+ "' AND password= '"+password+"'";

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:if="${session.admin}">
 <head>
     <link rel="stylesheet" href="default.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -43,7 +43,7 @@
 <form id="memberForm" th:action="@{/editMember}" th:object="${member}" th:method="post">
 <table id="membertable">
 
-    <tr><th>Id</th><td><input type="text" th:field="*{memberId}"></td>
+    <tr><th>Id</th><td><input readonly="readonly" type="text" th:field="*{memberId}"></td>
 
     <tr><th>Fornavn</th><td><input type="text" th:field="*{firstName}"></td></tr>
 

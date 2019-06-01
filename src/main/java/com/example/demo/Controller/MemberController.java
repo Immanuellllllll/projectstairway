@@ -27,7 +27,7 @@ public class MemberController {
         return "redirect:" + referer;
     }
 
-    @GetMapping("/a")
+    @GetMapping("/Støt")
     public String registerForm(Model model) {
         model.addAttribute("member", new Member());
         model.addAttribute("donation", new Donation());

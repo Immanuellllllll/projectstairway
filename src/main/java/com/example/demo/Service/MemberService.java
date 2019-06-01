@@ -17,11 +17,11 @@ public class MemberService implements MemberServiceI{
     MemberRepoI mr;
 
     public void registerMember(Member member) throws SQLException {
-        mr.registerMember(member.getFirstName(), member.getLastName(), member.getStreet(), member.getPostalcode(), member.getCity(), member.getEmail(),member.getDescription());
+        mr.registerMember(member);
     }
 
     public void editMember(Member member) throws SQLException {
-        mr.editMember(member.getMemberId(), member.getFirstName(), member.getLastName(), member.getStreet(), member.getPostalcode(), member.getCity(),member.getPrivatephone(),member.getMobilephone(),member.getWorkphone(),member.getJob(),member.getFax(), member.getEmail(),member.getDescription(),member.getLastpayed(),member.getMemberstatus(),member.getVolunteerstatus());
+        mr.editMember(member);
     }
 
     public void deleteMember(int memberId) throws SQLException {

@@ -19,7 +19,8 @@ public class AdminController {
     AdminServiceI As;
 
     @GetMapping("/")
-    public String Login (Model model){
+    public String Login (Model model, HttpSession session){
+        session.setAttribute("admin", false);
         model.addAttribute("admin", new Admin());
         return "Login";
     }

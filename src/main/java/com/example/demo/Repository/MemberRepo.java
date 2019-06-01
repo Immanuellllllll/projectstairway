@@ -1,6 +1,7 @@
 package com.example.demo.Repository;
 
 import com.example.demo.Config.MySQLConnection;
+import com.example.demo.Models.Member;
 import com.opencsv.CSVWriter;
 import org.springframework.stereotype.Repository;
 
@@ -22,42 +23,50 @@ public class MemberRepo implements MemberRepoI {
     }
 
     @Override
-    public void registerMember(String firstName, String lastName, String street, String postalcode, String city, String email, String description) throws SQLException {
+    public void registerMember(Member member) throws SQLException {
         con=msc.create();
-        String q = "INSERT INTO members (firstname, surname, street, postalcode, city, email, description)"+" VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String q = "INSERT INTO members (firstname, surname, street, postalcode, city, privatephone , mobilephone, workphone, job, fax, email, description, sidst_betalt_kontingent, medlemsstatus, volontørstatus )"+" VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement preparedStmt = con.prepareStatement(q);
-        preparedStmt.setString (1, firstName);
-        preparedStmt.setString (2, lastName);
-        preparedStmt.setString (3, street);
-        preparedStmt.setString (4, postalcode);
-        preparedStmt.setString (5, city);
-        preparedStmt.setString (6, email);
-        preparedStmt.setString (7, description);
+        preparedStmt.setString (1, member.getFirstName());
+        preparedStmt.setString (2, member.getLastName());
+        preparedStmt.setString (3, member.getStreet());
+        preparedStmt.setString (4, member.getPostalcode());
+        preparedStmt.setString (5, member.getCity());
+        preparedStmt.setString(6, member.getPrivatephone());
+        preparedStmt.setString(7, member.getMobilephone());
+        preparedStmt.setString(8, member.getWorkphone());
+        preparedStmt.setString(9, member.getJob());
+        preparedStmt.setString(10, member.getFax());
+        preparedStmt.setString (11, member.getEmail());
+        preparedStmt.setString (12, member.getDescription());
+        preparedStmt.setString(13, member.getLastpayed());
+        preparedStmt.setString(14, member.getMemberstatus());
+        preparedStmt.setString(15, member.getVolunteerstatus());
         preparedStmt.execute();
         preparedStmt.close();
         con.close();
     }
     @Override
-    public void editMember(int memberid, String firstName, String lastName, String street, String postalcode, String city, String privatephone, String mobilephone, String workphone, String job, String fax, String email, String description, String Sidst_betalt_kontingent, String medlemsstatus, String volontørstatus) throws SQLException {
+    public void editMember(Member member) throws SQLException {
         con=msc.create();
         String q = "UPDATE members SET firstname=?, surname=?, street=?, postalcode=?, city=?, privatephone=?, mobilephone=?, workphone=?, job=?, fax=?, email=?, description=?, sidst_betalt_kontingent=?, medlemsstatus=?, volontørstatus=?"+" where memberid=?";
         PreparedStatement preparedStmt = con.prepareStatement(q);
-        preparedStmt.setString (1, firstName);
-        preparedStmt.setString (2, lastName);
-        preparedStmt.setString (3, street);
-        preparedStmt.setString (4, postalcode);
-        preparedStmt.setString (5, city);
-        preparedStmt.setString(6, privatephone);
-        preparedStmt.setString(7, mobilephone);
-        preparedStmt.setString(8, workphone);
-        preparedStmt.setString(9, job);
-        preparedStmt.setString(10, fax);
-        preparedStmt.setString (11, email);
-        preparedStmt.setString (12, description);
-        preparedStmt.setString(13, Sidst_betalt_kontingent);
-        preparedStmt.setString(14, medlemsstatus);
-        preparedStmt.setString(15, volontørstatus);
-        preparedStmt.setInt(16, memberid);
+        preparedStmt.setString (1, member.getFirstName());
+        preparedStmt.setString (2, member.getLastName());
+        preparedStmt.setString (3, member.getStreet());
+        preparedStmt.setString (4, member.getPostalcode());
+        preparedStmt.setString (5, member.getCity());
+        preparedStmt.setString(6, member.getPrivatephone());
+        preparedStmt.setString(7, member.getMobilephone());
+        preparedStmt.setString(8, member.getWorkphone());
+        preparedStmt.setString(9, member.getJob());
+        preparedStmt.setString(10, member.getFax());
+        preparedStmt.setString (11, member.getEmail());
+        preparedStmt.setString (12, member.getDescription());
+        preparedStmt.setString(13, member.getLastpayed());
+        preparedStmt.setString(14, member.getMemberstatus());
+        preparedStmt.setString(15, member.getVolunteerstatus());
+        preparedStmt.setInt(16, member.getMemberId());
         preparedStmt.execute();
         preparedStmt.close();
         con.close();
