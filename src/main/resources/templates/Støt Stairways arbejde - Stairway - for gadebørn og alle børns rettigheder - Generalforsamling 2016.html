@@ -424,17 +424,17 @@ var revapi2,
 </div>
 <p><span class="wpcf7-form-control-wrap ja-tak"><span class="wpcf7-form-control wpcf7-checkbox wpcf7-validates-as-required"><span class="wpcf7-list-item first last"><input type="checkbox" name="ja-tak[]" value="Ja, jeg vil gerne være medlem af Stairway Danmark. Et medlemsskab koster 150 kr. årligt." /><span class="wpcf7-list-item-label">Ja, jeg vil gerne være medlem af Stairway Danmark. Et medlemsskab koster 150 kr. årligt.</span></span></span></span></p>
 <p>Fornavn (skal udfyldes)<br />
-    <span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" value="" th:field="*{firstName}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+    <span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" value="" th:field="*{firstName}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" required/></span> </p>
 <p>Efternavn (skal udfyldes)<br />
-    <span class="wpcf7-form-control-wrap text-517"><input type="text" name="text-517" value=""  th:field="*{lastName}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+    <span class="wpcf7-form-control-wrap text-517"><input type="text" name="text-517" value=""  th:field="*{lastName}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" required/></span> </p>
 <p>Vej (skal udfyldes)<br />
-    <span class="wpcf7-form-control-wrap text-vej"><input type="text" name="text-vej" value="" th:field="*{street}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+    <span class="wpcf7-form-control-wrap text-vej"><input type="text" name="text-vej" value="" th:field="*{street}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" required/></span> </p>
 <p>Postnummer (skal udfyldes)<br />
-    <span class="wpcf7-form-control-wrap text-postnummer"><input type="text" name="text-postnummer" value="" th:field="*{postalcode}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+    <span class="wpcf7-form-control-wrap text-postnummer"><input type="text" name="text-postnummer" value="" th:field="*{postalcode}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" required/></span> </p>
 <p>By (skal udfyldes)<br />
-    <span class="wpcf7-form-control-wrap text-by"><input type="text" name="text-by" value="" th:field="*{city}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+    <span class="wpcf7-form-control-wrap text-by"><input type="text" name="text-by" value="" th:field="*{city}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" required/></span> </p>
 <p>Din e-mail (skal udfyldes)<br />
-    <span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" th:field="*{email}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" /></span> </p>
+    <span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" th:field="*{email}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"  required/></span> </p>
 <p>Evt. besked til Stairway Danmark<br />
     <span class="wpcf7-form-control-wrap textarea-besked"><textarea name="textarea-besked" th:field="*{description}" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"></textarea></span> </p>
 <p><input type="submit" value="Tilmeld mig nu" class="wpcf7-form-control wpcf7-submit" /></p>
@@ -463,13 +463,13 @@ var revapi2,
 				</div>
 
 				<p>Navn<br />
-					<span ><input type="text" name="amount" value="" th:field="*{name}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+					<span ><input type="text" name="amount" value="" th:field="*{name}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" required/></span> </p>
 				<p>Skrive beløb (i hele kroner)<br />
-					<span ><input type="text" name="amount" value="" th:field="*{amount}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+					<span ><input type="text" name="amount" value="" th:field="*{amount}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" required/></span> </p>
 				<p>CPR-nummer<br />
-					<span><input type="text" name="text-cpr" value=""  th:field="*{cpr}" size="40" maxlength="10" minlength="10" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+					<span><input type="text" name="text-cpr" value=""  th:field="*{cpr}" size="40" maxlength="10" minlength="10" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" required/></span> </p>
 				<p>Telefonnummer<br />
-					<span><input type="text" name="text-phone" value="" th:field="*{phoneNumber}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+					<span><input type="text" name="text-phone" value="" th:field="*{phoneNumber}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" required/></span> </p>
 				<p><input type="submit" value="Gå til betaling" class="wpcf7-form-control wpcf7-submit" /></p>
 		<br>
 		<br>
