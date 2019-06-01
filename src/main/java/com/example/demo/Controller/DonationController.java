@@ -20,7 +20,7 @@ public class DonationController {
     @PostMapping("/donate")
     public String donate(@ModelAttribute Donation donation) throws SQLException {
         ds.donate(donation);
-        return "redirect:/donate";
+        return "Betaling";
     }
     @GetMapping("/showAllDeductableDonations")
     public String showAllDeductableDonations(Model model) throws SQLException {

@@ -467,7 +467,7 @@ var revapi2,
 				<p>Skrive beløb (i hele kroner)<br />
 					<span ><input type="text" name="amount" value="" th:field="*{amount}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
 				<p>CPR-nummer<br />
-					<span><input type="text" name="text-cpr" value=""  th:field="*{cpr}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
+					<span><input type="text" name="text-cpr" value=""  th:field="*{cpr}" size="40" maxlength="10" minlength="10" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
 				<p>Telefonnummer<br />
 					<span><input type="text" name="text-phone" value="" th:field="*{phoneNumber}" size="40" maxlength="70" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </p>
 				<p><input type="submit" value="Gå til betaling" class="wpcf7-form-control wpcf7-submit" /></p>
