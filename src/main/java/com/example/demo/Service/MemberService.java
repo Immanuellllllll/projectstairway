@@ -15,7 +15,7 @@ import java.util.List;
 public class MemberService implements MemberServiceI{
     @Autowired
     MemberRepoI mr;
-
+    //De næste tre metoder sender blot arbejdet videre til mr.
     public void registerMember(Member member) throws SQLException {
         mr.registerMember(member);
     }
@@ -27,6 +27,7 @@ public class MemberService implements MemberServiceI{
     public void deleteMember(int memberId) throws SQLException {
         mr.deleteMember(memberId);
     }
+    //Modtager et ResultSet objekt fra mr og laver en liste af medlemmer ud fra det. Returnerer listen til Membercontroller objektet.
     public List<Member> viewMembers() throws Exception {
 
         ResultSet rs = mr.viewAllMembers();
@@ -58,6 +59,7 @@ public class MemberService implements MemberServiceI{
         mr.close();
         return memberList;
     }
+    //Instantierer et Member objekt ud fra et ResultSet og returnerer det til controller objektet.
     public Member viewMember(int memberId) throws Exception {
 
         ResultSet rs= mr.viewMember(memberId);
@@ -84,9 +86,9 @@ public class MemberService implements MemberServiceI{
     }
 
     @Override
+    //Finder året fra den nuværende dato og bruger det sammen med det valgte memberid som argumenter i setDate kaldet.
     public void setDate(int memberid) throws SQLException {
         LocalDate d = LocalDate.now();
-        System.out.println(d.getYear());
         Integer.valueOf(d.toString().substring(0,4));
         mr.setDate(memberid,d.toString());
 

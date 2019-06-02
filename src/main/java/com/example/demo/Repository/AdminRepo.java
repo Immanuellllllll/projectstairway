@@ -20,7 +20,7 @@ public class AdminRepo implements AdminRepoI {
 
     }
 
-    //Vi tager username fra website, password taget vi igennem hash metoden fra Service. Så tjekker vi om den passer i Databasen.
+    //Sammenligner username og det hashede password med dem i databasen.
     @Override
     public ResultSet confirmLogin(Admin admin) throws NoSuchAlgorithmException, SQLException {
 
@@ -37,6 +37,7 @@ public class AdminRepo implements AdminRepoI {
         }
         return null;
     }
+    //Eksekverer en query og returnerer et ResultSet objekt.
     private ResultSet Query (String query) throws SQLException {
         Statement stmt = con.createStatement();
         return (stmt.executeQuery(query));

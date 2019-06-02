@@ -21,7 +21,7 @@ public class MemberRepo implements MemberRepoI {
         //Lets load the driver
 
     }
-
+    //Eksekverer en prepared statement der indsætter en række med et medlems informationer i medlemstabellen.
     @Override
     public void registerMember(Member member) throws SQLException {
         con=msc.create();
@@ -46,6 +46,7 @@ public class MemberRepo implements MemberRepoI {
         preparedStmt.close();
         con.close();
     }
+    //Eksekverer en prepared statement der opdaterer en bestemt række med nye informationer om et medlem.
     @Override
     public void editMember(Member member) throws SQLException {
         con=msc.create();
@@ -72,7 +73,7 @@ public class MemberRepo implements MemberRepoI {
         con.close();
     }
 
-
+    //Fjerner rækken med det valgte memberId fra tabellen.
     @Override
     public void deleteMember(int memberId) throws SQLException {
         con=msc.create();
@@ -85,7 +86,6 @@ public class MemberRepo implements MemberRepoI {
         }
 
     //Metoden prøver at sende en SQL sætning til databasen og lykkedes det sender den et resultset af alle patienter tilbage.
-
     @Override
     public ResultSet viewAllMembers() throws Exception {
         con=msc.create();
@@ -100,6 +100,7 @@ public class MemberRepo implements MemberRepoI {
             return null;
     }
 
+    //returner et ResultSet med en enkel bestemt række i medlemstabellen.
     @Override
     public ResultSet viewMember(int memberId) throws Exception {
         con=msc.create();
@@ -113,13 +114,13 @@ public class MemberRepo implements MemberRepoI {
         return null;
     }
 
-    //Metoden beder om en String og returnerer en ordre til at udføre den i databasen.
+    //Eksekverer en query og returnerer et ResultSet objekt.
     private ResultSet Query (String query) throws SQLException
     {
         Statement stmt = con.createStatement();
         return (stmt.executeQuery(query));
     }
-
+    //Updatere en rækker ved at sætte sidst_betalt_kontigent til dagens dato. Arbejder med et String objekt da Date kan give komplikationer.
     @Override
     public void setDate(int memberid, String sbk) throws SQLException {
         con=msc.create();

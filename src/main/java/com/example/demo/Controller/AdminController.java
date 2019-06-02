@@ -15,16 +15,19 @@ import java.sql.SQLException;
 
 @Controller
 public class AdminController {
+    //Bruger interfaces for løsere kobling
     @Autowired
     AdminServiceI As;
 
+    //Login siden. session attribute er false by default og sættes til false i tilfælde a log ud.
     @GetMapping("/admin")
     public String Login (Model model, HttpSession session){
         session.setAttribute("admin", false);
         model.addAttribute("admin", new Admin());
         return "Login";
     }
-
+    //Modtager en admin objekt og bruger det som argumenter for confirmLogin metoden i As.
+    //Er login oplysningerne bekræftet sættes admin til true og man er derefter logget ind i systemet
     @PostMapping("/Login")
     public String confirmLogin (@ModelAttribute Admin admin, HttpSession session) throws SQLException, NoSuchAlgorithmException {
         try {

@@ -41,6 +41,7 @@ public class AdminService implements AdminServiceI {
         return sb.toString();
     }
 
+    //Hasher admin objektets password og bekræfter login
     @Override
     public void confirmLogin(Admin admin) throws SQLException, NoSuchAlgorithmException {
         admin.setPassword(hashPassword(admin.getPassword()));
