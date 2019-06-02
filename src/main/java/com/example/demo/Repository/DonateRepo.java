@@ -16,7 +16,7 @@ public class DonateRepo implements DonateRepoI {
     {
         this.msc=msc;
     }
-
+    //Indsætter en række i donationstabellen med afgivne informationer
     @Override
     public void donate(Donation donation, int cprid) throws SQLException {
         con=msc.create();
@@ -32,6 +32,8 @@ public class DonateRepo implements DonateRepoI {
         con.close();
 
     }
+    //Metoden enterCPR indsætter CPR-nummeret ind hvis det ikke allerede findes og returnerer et ResultSet med netop det nyindsat CPR-nummer
+    //Findes CPR-nummeret allerede hentes det blot fra tabellen uden at noget nyt indsættes
     @Override
     public ResultSet enterCPR(String cpr) throws SQLException {
         con=msc.create();
@@ -48,21 +50,22 @@ public class DonateRepo implements DonateRepoI {
             return rs;
         }
     }
+    //Eksekverer en query og returnerer et ResultSet objekt.
     private ResultSet Query (String query) throws SQLException
     {
         Statement stmt = con.createStatement();
         return (stmt.executeQuery(query));
     }
-
+    //Kobler rækker med fradragsberettigede donationer (over 199) fra donation tabellen sammen med cpr-numrene fra cpr tabellen.
     @Override
     public ResultSet showAllDeductableDonations() throws SQLException {
         con=msc.create();
-        String q="Select * from donation right join cpr on donation.cprid=cpr.cprid";
+        String q="Select * from donation right join cpr on donation.cprid=cpr.cprid where amount>199";
         Statement stmt = con.createStatement();
         ResultSet rs=stmt.executeQuery(q);
         return rs;
     }
-
+    //Rydder cpr tabellen.
     @Override
     public void wipeCPR() throws SQLException {
         con=msc.create();
@@ -72,7 +75,7 @@ public class DonateRepo implements DonateRepoI {
         stmt.close();
         con.close();
     }
-
+    //Returnerer et ResultSet med alle rækker fra donationstabellen
     @Override
     public ResultSet showAllDonations() throws SQLException {
         con=msc.create();

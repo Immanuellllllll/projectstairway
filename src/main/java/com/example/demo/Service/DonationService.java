@@ -16,6 +16,7 @@ public class DonationService implements DonationServiceI {
     @Autowired
     DonateRepoI dr;
 
+    //Metoden kalder metoden enterCPR(mere om det i DonateRepo) og bruger Donation objektet samt CPR-nummeret som argumenter i dr.donate kaldet.
     @Override
     public void donate(Donation donation) throws SQLException {
         ResultSet rs=dr.enterCPR(donation.getCpr());

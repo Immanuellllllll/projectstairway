@@ -17,23 +17,27 @@ public class DonationController {
     @Autowired
     DonationService ds;
 
+    //Modtager et Donation objekt og bruger det som argumenter i ds.donate kaldet
     @PostMapping("/donate")
     public String donate(@ModelAttribute Donation donation) throws SQLException {
         ds.donate(donation);
         return "Betaling";
     }
+    //Henter listen med alle fradragsberettigede donationer og præsenterer det for brugeren.
     @GetMapping("/showAllDeductableDonations")
     public String showAllDeductableDonations(Model model) throws SQLException {
         model.addAttribute("donations", ds.showAllDeductableDonations());
         model.addAttribute("donation", new Donation());
         return "showAllDeductableDonations";
     }
+    //Henter listen med alle donationer og præsenterer det for brugeren.
     @GetMapping("/showAllDonations")
     public String showAllDonations(Model model) throws SQLException {
         model.addAttribute("donations", ds.showAllDonations());
         model.addAttribute("donation", new Donation());
         return "showAllDonations";
     }
+    //Kalder metoden wipeCPR for fjernelse af alle gemte CPR-numrene. Refresher siden.
     @PostMapping("/wipeCPR")
     public String wipeCPR(HttpServletRequest request) throws SQLException {
         ds.wipeCPR();
