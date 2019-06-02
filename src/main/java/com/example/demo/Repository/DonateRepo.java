@@ -1,7 +1,7 @@
 package com.example.demo.Repository;
 
-import com.example.demo.Config.MySQLConnection;
-import com.example.demo.Models.Donation;
+import com.example.demo.Config.MySQLConnection;  // Vores config fil importeres
+import com.example.demo.Models.Donation;  //        Donations modellen importeres
 import org.springframework.stereotype.Repository;
 
 import javax.swing.plaf.nimbus.State;

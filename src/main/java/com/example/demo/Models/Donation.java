@@ -1,7 +1,7 @@
 package com.example.demo.Models;
 
-public class Donation {
-    private int donationId;
+public class Donation { //     Her er en donations klasse med private attributer
+    private int donationId; // For at tilgå attributterne har vi getters og setters
     private int amount;
     private String phoneNumber;
     private String cpr;
